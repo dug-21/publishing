@@ -1,0 +1,41 @@
+# Build output: everything the pipeline generates (site, PDFs, OSCAL, exports, fixtures, scale test)
+/build/
+
+# Comment spreadsheets received from reviewers may hold names and organisations.
+# Keep them here while importing with `make feedback-import`; they are never committed.
+/inbox/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Node (tools/package-lock.json is tracked; installed modules live in the toolbox image)
+node_modules/
+
+# Tool caches
+.cspellcache
+.lycheecache
+.vale-cache/
+
+# Translation tooling backups
+*.po~
+*.pot~
+*.mo
+
+# Local environment and secrets
+.env
+.env.*
+
+# Editors and operating systems (shared snippets in .vscode are tracked)
+.vscode/*
+!.vscode/*.code-snippets
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Claude Code local settings
+.claude/settings.local.json
