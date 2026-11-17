@@ -1,0 +1,6 @@
+extends: occurrence
+message: "Sentence has more than 45 words; split it so that it can be translated and assessed reliably."
+level: error
+scope: sentence
+max: 45
+token: '\b(\w+)\b'

@@ -1,0 +1,60 @@
+= Fixture Standard
+:sectnums:
+:sectnumlevels: 3
+:lang: en
+
+[.informative]
+This fixture is a minimal standard used to test one validator.
+
+[[scope]]
+== Scope
+
+This fixture covers one requirement.
+
+[[normative-references]]
+== Normative references
+
+There are no normative references.
+
+[[terms]]
+== Terms and definitions
+
+[[term-user-identifier]]user identifier::
+value that uniquely identifies one person
+
+[[controls]]
+== Controls
+
+[[identification]]
+=== Identification
+
+[[REQ-4.1.1]]
+[.requirement]
+==== Unique user identifiers
+
+[.statement]
+--
+The entity shall assign a unique <<term-user-identifier,user identifier>> to each person.
+--
+
+[.testing]
+.Testing procedures
+[[TP-4.1.1.a]]4.1.1.a:: Examine the account list to verify that each person has a unique user identifier.
+
+[.guidance]
+.Guidance
+****
+Unique identifiers make actions traceable.
+****
+
+[[REQ-4.1.1]]
+[appendix.informative]
+== Notes (informative)
+
+This annex contains no requirements.
+
+[bibliography.informative]
+[[bibliography]]
+== Bibliography
+
+* [[[ref,1]]] Example Author, _Example Title_.

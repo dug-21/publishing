@@ -1,0 +1,28 @@
+[[terms]]
+== Terms and definitions
+
+For the purposes of this standard, the following terms and definitions apply.
+
+[[term-assessor]]assessor::
+person or organisation that evaluates whether an entity meets the requirements of this standard
+
+[[term-entity]]entity::
+organisation that stores, processes or transmits member data
+
+[[term-member-data]]member data::
+information that identifies a member, together with any account or transaction information linked to that member
+
+[[term-member-data-environment]]member data environment::
+people, processes and system components that store, process or transmit member data
+
+[[term-privileged-account]]privileged account::
+account with permissions beyond those of a standard user, such as the ability to change security settings or read all member data
+
+[[term-strong-cryptography]]strong cryptography::
+cryptography based on publicly reviewed algorithms with an effective key strength of at least 128 bits
+
+[[term-system-component]]system component::
+network device, server, computing device, virtual component or application included in or connected to the member data environment
+
+[[term-user-identifier]]user identifier::
+value that uniquely identifies one person or one automated process to a system component

@@ -1,0 +1,95 @@
+[[access-management]]
+== Access management
+
+Access to member data is limited to people and processes that need it, and every action can be traced to the person or process that performed it.
+
+[[identification]]
+=== Identification
+
+[[REQ-4.1.1]]
+[.requirement]
+==== Unique user identifiers
+
+[.statement]
+--
+The entity shall assign a unique <<term-user-identifier,user identifier>> to each person and each automated process before allowing access to any <<term-system-component,system component>>.
+--
+
+[.testing]
+.Testing procedures
+[[TP-4.1.1.a]]4.1.1.a:: Examine the account management procedure to verify that it requires a unique user identifier for each person and each automated process.
+[[TP-4.1.1.b]]4.1.1.b:: Examine the account list of a sample of system components to verify that no user identifier is assigned to more than one person.
+
+[.guidance]
+.Guidance
+****
+When several people share one identifier, actions cannot be traced to an individual. Service accounts used by software are in scope: each one needs its own identifier and a named owner.
+****
+
+[[REQ-4.1.2]]
+[.requirement]
+==== Removal of access on departure
+
+[.statement]
+--
+The entity shall disable the user identifiers of a person within one business day of that person leaving the entity.
+--
+
+[.testing]
+.Testing procedures
+[[TP-4.1.2.a]]4.1.2.a:: Examine the leaver procedure to verify that it defines who disables user identifiers and within what time.
+[[TP-4.1.2.b]]4.1.2.b:: Examine records for a sample of people who left in the last six months to verify that their user identifiers were disabled within one business day.
+
+[.guidance]
+.Guidance
+****
+Accounts that remain active after a person leaves are a common route for unauthorised access. Linking the leaver procedure to the human resources system reduces the delay.
+****
+
+[[access-review]]
+=== Access review
+
+[[REQ-4.2.1]]
+[.requirement]
+==== Periodic review of access rights
+
+[.statement]
+--
+The entity shall review access rights at least as often as <<table-review-frequency>> specifies, and shall remove any access that is no longer needed.
+
+The entity should record the outcome of each review, including the name of the reviewer.
+--
+
+[.testing]
+.Testing procedures
+[[TP-4.2.1.a]]4.2.1.a:: Examine review records to verify that reviews took place at the frequency that <<table-review-frequency>> specifies.
+[[TP-4.2.1.b]]4.2.1.b:: Interview the people responsible to verify that access identified as no longer needed was removed.
+[[TP-4.2.1.c]]4.2.1.c:: Examine a sample of <<term-privileged-account,privileged accounts>> to verify that each one has a documented business reason.
+
+[.guidance]
+.Guidance
+****
+Access tends to accumulate as people change roles. A review is most effective when the person who performs it understands what each role needs.
+****
+
+[[table-review-frequency]]
+.Minimum frequency of access reviews
+[cols="2,2,3",options="header"]
+|===
+|Account type |Minimum review frequency |Reviewer
+
+|Standard user account
+|Every 12 months
+|Line manager of the account holder
+
+.2+|<<term-privileged-account,Privileged account>>
+|Every 3 months
+|System owner
+
+|After any change of role
+|System owner and security function
+
+|Account used by an automated process
+|Every 6 months
+|Named owner of the process
+|===

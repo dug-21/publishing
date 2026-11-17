@@ -1,0 +1,7 @@
+[[normative-references]]
+== Normative references
+
+The following documents are referred to in the text in such a way that some or all of their content constitutes requirements of this standard.
+
+* [[ref-rfc8446]]IETF RFC 8446, _The Transport Layer Security (TLS) Protocol Version 1.3_. Available at https://www.rfc-editor.org/rfc/rfc8446.
+* [[ref-rfc3339]]IETF RFC 3339, _Date and Time on the Internet: Timestamps_. Available at https://www.rfc-editor.org/rfc/rfc3339.

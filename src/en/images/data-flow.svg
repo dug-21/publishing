@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" width="640" height="200" role="img" font-family="DejaVu Sans, sans-serif" font-size="14">
+  <title>Typical flow of member data</title>
+  <g fill="#ffffff" stroke="#1a1a1a" stroke-width="2">
+    <rect x="10" y="50" width="130" height="60" rx="6"/>
+    <rect x="250" y="50" width="150" height="60" rx="6"/>
+    <rect x="490" y="50" width="140" height="60" rx="6"/>
+    <rect x="250" y="150" width="150" height="40" rx="6"/>
+  </g>
+  <g fill="#1a1a1a" text-anchor="middle">
+    <text x="75" y="85">Member</text>
+    <text x="325" y="85">Entity application</text>
+    <text x="560" y="78">Encrypted</text>
+    <text x="560" y="96">data store</text>
+    <text x="325" y="175">Audit logs</text>
+    <text x="195" y="40">Encrypted in transit</text>
+  </g>
+  <g stroke="#1a1a1a" stroke-width="2" fill="none">
+    <path d="M140 80 H244"/><path d="M400 80 H484"/><path d="M325 110 V144"/>
+  </g>
+  <g fill="#1a1a1a">
+    <path d="M250 80 l-10 -5 v10 z"/><path d="M490 80 l-10 -5 v10 z"/><path d="M325 150 l-5 -10 h10 z"/>
+  </g>
+</svg>

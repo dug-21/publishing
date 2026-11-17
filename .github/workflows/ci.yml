@@ -1,0 +1,129 @@
+name: CI
+
+# Pull requests: validate. Push to main: validate, then publish the draft site.
+# Tag vX.Y.Z: validate, publish the versioned site and create the release.
+on:
+  pull_request:
+  push:
+    branches: [main]
+    tags: ["v[0-9]*"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - name: Toolbox image tag
+        id: toolbox
+        run: echo "image=$(make -s toolbox-tag)" >> "$GITHUB_OUTPUT"
+      - uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+      - name: Build toolbox image (cached)
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: tools
+          load: true
+          tags: ${{ steps.toolbox.outputs.image }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      - name: Validate (every layer)
+        run: make check
+      - name: Prove the validators (failure fixtures)
+        run: make check-fixtures
+      - name: Prove the pipeline at scale (about 400 pages)
+        run: make check-scale
+      - name: Upload build output
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: build-output
+          path: |
+            build/site
+            build/dist
+            build/requirements.json
+          if-no-files-found: ignore
+
+  publish:
+    if: github.event_name == 'push'
+    needs: validate
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write      # gh-pages branch and GitHub Release
+      id-token: write      # artifact attestations
+      attestations: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      CHANNEL: ${{ github.ref_type == 'tag' && 'release' || 'draft' }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - name: Tag matches VERSION file
+        if: github.ref_type == 'tag'
+        run: test "v$(cat VERSION)" = "$GITHUB_REF_NAME" || { echo "::error::Tag $GITHUB_REF_NAME does not match VERSION ($(cat VERSION))"; exit 1; }
+      - name: Toolbox image tag
+        id: toolbox
+        run: echo "image=$(make -s toolbox-tag)" >> "$GITHUB_OUTPUT"
+      - uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+      - name: Build toolbox image (cached)
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: tools
+          load: true
+          tags: ${{ steps.toolbox.outputs.image }}
+          cache-from: type=gha
+      - name: Restore previously published versions
+        run: |
+          mkdir -p build/publish/site
+          if git fetch --depth 1 origin gh-pages 2>/dev/null; then
+            git archive FETCH_HEAD | tar -x -C build/publish/site
+          fi
+      - name: Build and assemble the site
+        run: make publish CHANNEL="$CHANNEL"
+      - name: Save the site to the gh-pages branch
+        env:
+          GIT_DIR: ${{ runner.temp }}/pages.git
+          GIT_WORK_TREE: ${{ github.workspace }}/build/publish/site
+        run: |
+          git init -q -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Publish ${GITHUB_REF_NAME} (${GITHUB_SHA::7})"
+          git push -q --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: build/publish/site
+      - name: Release notes
+        if: github.ref_type == 'tag'
+        run: make release-notes
+      - name: Attest release artifacts
+        if: github.ref_type == 'tag' && github.event.repository.visibility == 'public'
+        uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6 # v4.2.2
+        with:
+          subject-path: build/release/*
+      - name: Create GitHub Release
+        if: github.ref_type == 'tag'
+        run: gh release create "$GITHUB_REF_NAME" build/release/* --title "$GITHUB_REF_NAME" --notes-file build/release-notes.md --verify-tag
+
+  deploy:
+    needs: publish
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+      - id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

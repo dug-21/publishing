@@ -1,0 +1,10 @@
+extends: substitution
+message: "Use '%s' instead of '%s'."
+level: error
+ignorecase: true
+swap:
+  'in order to': to
+  'utili[sz]e': use
+  'prior to': before
+  'in the event that': if
+  'and/or': '"or" or "and"'

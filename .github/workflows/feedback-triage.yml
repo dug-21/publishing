@@ -1,0 +1,26 @@
+name: Feedback triage
+
+# Checks that each public comment refers to a requirement or clause that exists.
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  triage:
+    if: contains(github.event.issue.labels.*.name, 'public-comment')
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Check the requirement ID
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          gh label create id-verified --description "Comment refers to a valid ID" --force
+          gh label create needs-valid-id --description "Comment does not refer to a valid ID" --force
+          python3 tools/feedback.py triage --issue "$ISSUE_NUMBER" || true

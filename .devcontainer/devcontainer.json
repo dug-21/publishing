@@ -2,7 +2,7 @@
   "image": "mcr.microsoft.com/devcontainers/base:noble",
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
-        "version": "lts"
+      "version": "lts"
     },
     "ghcr.io/devcontainers/features/python:1": {
       "version": "latest",
@@ -22,9 +22,10 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode",
-        "rust-lang.rust-analyzer"
+        "asciidoctor.asciidoctor-vscode",
+        "streetsidesoftware.code-spell-checker",
+        "redhat.vscode-yaml",
+        "ms-azuretools.vscode-docker"
       ]
     }
   }

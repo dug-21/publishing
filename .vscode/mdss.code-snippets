@@ -1,0 +1,40 @@
+{
+  "Requirement": {
+    "scope": "asciidoc",
+    "prefix": "req",
+    "description": "A requirement with statement, testing procedures and guidance",
+    "body": [
+      "[[REQ-${1:4.1.1}]]",
+      "[.requirement]",
+      "==== ${2:Short title}",
+      "",
+      "[.statement]",
+      "--",
+      "The entity shall ${3:do something}.",
+      "--",
+      "",
+      "[.testing]",
+      ".Testing procedures",
+      "[[TP-$1.a]]$1.a:: Examine ${4:the evidence} to verify that ${5:the requirement is met}.",
+      "",
+      "[.guidance]",
+      ".Guidance",
+      "****",
+      "${6:Why this matters and how to approach it.}",
+      "****",
+      ""
+    ]
+  },
+  "Testing procedure": {
+    "scope": "asciidoc",
+    "prefix": "tp",
+    "description": "One more testing procedure for a requirement",
+    "body": ["[[TP-${1:4.1.1}.${2:b}]]$1.$2:: ${3|Examine,Interview,Observe|} ${4:what} to verify that ${5:what}."]
+  },
+  "Defined term": {
+    "scope": "asciidoc",
+    "prefix": "term",
+    "description": "A term for clause 3",
+    "body": ["[[term-${1:term-id}]]${2:term}::", "${3:definition, written so it can replace the term in a sentence}", ""]
+  }
+}

@@ -1,0 +1,6 @@
+[bibliography.informative]
+[[bibliography]]
+== Bibliography
+
+* [[[oscal,1]]] National Institute of Standards and Technology, _Open Security Controls Assessment Language (OSCAL)_. Available at https://pages.nist.gov/OSCAL/.
+* [[[wcag22,2]]] World Wide Web Consortium, _Web Content Accessibility Guidelines (WCAG) 2.2_. Available at https://www.w3.org/TR/WCAG22/.

@@ -1,0 +1,45 @@
+name: Comment on the standard
+description: Give feedback on a requirement or clause. You do not need to know how the standard is built.
+title: "[Requirement ID] "
+labels: ["public-comment"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reviewing the standard. Each comment is about **one** requirement or clause.
+        If you followed a "Comment on requirement" link, the first field is already filled in.
+  - type: input
+    id: requirement-id
+    attributes:
+      label: Requirement or clause ID
+      description: "The ID shown in the link you followed, for example REQ-4.1.1. For a clause, use its number, for example 4.1."
+      placeholder: REQ-4.1.1
+    validations:
+      required: true
+  - type: dropdown
+    id: comment-type
+    attributes:
+      label: Type of comment
+      options:
+        - Technical (the requirement, testing procedure or guidance should change)
+        - Editorial (wording, spelling or layout)
+        - General (question or observation)
+    validations:
+      required: true
+  - type: textarea
+    id: comment
+    attributes:
+      label: Comment
+      description: What is the problem or question?
+    validations:
+      required: true
+  - type: textarea
+    id: proposed-change
+    attributes:
+      label: Proposed change
+      description: If you can, give the wording you would like to see.
+  - type: input
+    id: organisation
+    attributes:
+      label: Organisation
+      description: Optional. The organisation you are commenting for.

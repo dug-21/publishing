@@ -1,0 +1,55 @@
+/* Stylesheet for the HTML edition and, through WeasyPrint, the PDF edition.
+   Uses logical properties throughout so right-to-left editions need no changes. */
+:root { --text: #1a1a1a; --muted: #4a4a4a; --link: #0b4f9e; --rule: #767676; --panel: #f3f5f7; --accent: #7a2e00; }
+* { box-sizing: border-box; }
+html { font-size: 100%; }
+body { margin: 0; color: var(--text); background: #fff; line-height: 1.55;
+  font-family: "Noto Sans", "Noto Sans CJK JP", "DejaVu Sans", sans-serif; }
+#header, #content, #footer, #footnotes { max-inline-size: 52rem; margin-inline: auto; padding-inline: 1.25rem; }
+h1 { font-size: 2rem; line-height: 1.2; margin-block: 2rem 0.5rem; }
+h2 { font-size: 1.5rem; margin-block-start: 2.5rem; border-block-end: 2px solid var(--rule); padding-block-end: 0.25rem; }
+h3 { font-size: 1.25rem; margin-block-start: 2rem; }
+h4 { font-size: 1.1rem; margin-block-start: 1.75rem; }
+a { color: var(--link); text-decoration: underline; }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.details, #footer-text { color: var(--muted); font-size: 0.9rem; }
+#toc ul { list-style: none; padding-inline-start: 1.25rem; }
+#toc > ul { padding-inline-start: 0; }
+#toctitle, .title { font-weight: 700; }
+div.title, caption.title, dl.testing ~ .title { margin-block: 1rem 0.35rem; }
+table { border-collapse: collapse; inline-size: 100%; margin-block: 0.5rem 1.5rem; }
+caption { text-align: start; }
+th, td { border: 1px solid var(--rule); padding: 0.4rem 0.6rem; vertical-align: top; text-align: start; }
+thead th { background: var(--panel); }
+th p, td p { margin: 0; }
+.sect3.requirement { border-inline-start: 4px solid var(--accent); padding-inline-start: 1rem; margin-block: 1.5rem; }
+.statement { font-weight: 600; }
+.statement p { margin-block: 0.5rem; }
+.dlist.testing dt { font-weight: 700; margin-block-start: 0.5rem; }
+.dlist.testing dd { margin-inline-start: 1.5rem; }
+.sidebarblock.guidance { background: var(--panel); padding: 0.75rem 1rem; margin-block: 1rem; }
+.sidebarblock.guidance p { margin-block: 0.25rem; }
+.comment-link { font-size: 0.9rem; }
+.imageblock img { max-inline-size: 100%; block-size: auto; }
+#footnotes hr { border: 0; border-block-start: 1px solid var(--rule); }
+#footer { margin-block: 3rem 2rem; border-block-start: 1px solid var(--rule); }
+dl dt { font-weight: 700; }
+
+@page { size: A4; margin: 22mm 18mm 22mm 18mm;
+  @bottom-center { content: counter(page); font-family: "Noto Sans", "DejaVu Sans", sans-serif; font-size: 9pt; } }
+@media print {
+  body { font-size: 10.5pt; }
+  #header, #content, #footer, #footnotes { max-inline-size: none; padding-inline: 0; }
+  h2 { break-before: page; }
+  h1, h2, h3, h4, caption, dt { break-after: avoid; }
+  tr, .sidebarblock, .imageblock { break-inside: avoid; }
+  thead { display: table-header-group; }
+  .comment-link { display: none; }
+  a { color: var(--text); }
+  #toc a::after { content: leader(".") target-counter(attr(href), page); }
+  #toc a { text-decoration: none; }
+}
+
+/* Asciidoctor wraps list item text in <p>. Flattening it keeps the PDF list
+   structure valid for PDF/UA (a list item holds only its label and body). */
+li > p:only-child { display: inline; }
