@@ -1,0 +1,30 @@
+﻿requirement_id,number,clause,clause_title,group,group_title,title,requirement_text,testing_procedures,guidance,standard_version
+REQ-4.1.1,4.1.1,4,Access management,4.1,Identification,Unique user identifiers,The entity shall assign a unique user identifier to each person and each automated process before allowing access to any system component.,"4.1.1.a Examine the account management procedure to verify that it requires a unique user identifier for each person and each automated process.
+4.1.1.b Examine the account list of a sample of system components to verify that no user identifier is assigned to more than one person.","When several people share one identifier, actions cannot be traced to an individual. Service accounts used by software are in scope: each one needs its own identifier and a named owner.",1.0.0
+REQ-4.1.2,4.1.2,4,Access management,4.1,Identification,Removal of access on departure,The entity shall disable the user identifiers of a person within one business day of that person leaving the entity.,"4.1.2.a Examine the leaver procedure to verify that it defines who disables user identifiers and within what time.
+4.1.2.b Examine records for a sample of people who left in the last six months to verify that their user identifiers were disabled within one business day.",Accounts that remain active after a person leaves are a common route for unauthorised access. Linking the leaver procedure to the human resources system reduces the delay.,1.0.0
+REQ-4.2.1,4.2.1,4,Access management,4.2,Access review,Periodic review of access rights,"The entity shall review access rights at least as often as Table 1 specifies, and shall remove any access that is no longer needed.
+
+The entity should record the outcome of each review, including the name of the reviewer.","4.2.1.a Examine review records to verify that reviews took place at the frequency that Table 1 specifies.
+4.2.1.b Interview the people responsible to verify that access identified as no longer needed was removed.
+4.2.1.c Examine a sample of privileged accounts to verify that each one has a documented business reason.",Access tends to accumulate as people change roles. A review is most effective when the person who performs it understands what each role needs.,1.0.0
+REQ-5.1.1,5.1.1,5,Data protection,5.1,Storage,Encryption of stored member data,"The entity shall render stored member data unreadable by using strong cryptography.
+
+The entity shall store cryptographic keys separately from the data that they protect.","5.1.1.a Examine system configurations to verify that stored member data is encrypted with strong cryptography.
+5.1.1.b Examine key storage locations to verify that keys are not stored with the data that they protect.",Encryption protects data only while the keys stay secret. A key stored beside the data that it protects gives little protection if the storage is copied.,1.0.0
+REQ-5.1.2,5.1.2,5,Data protection,5.1,Storage,Retention limits,"The entity shall define a retention period for each category of member data, and shall securely delete member data when its retention period ends.","5.1.2.a Examine the retention policy to verify that it defines a retention period for each category of member data.
+5.1.2.b Examine a sample of data stores to verify that they hold no member data older than the defined retention period.",Data that has been deleted cannot be stolen. Automated deletion jobs are more reliable than manual clean-up.,1.0.0
+REQ-5.2.1,5.2.1,5,Data protection,5.2,Transmission,Encryption in transit,"The entity shall protect member data sent over any network outside its control by using Transport Layer Security version 1.3, as specified in IETF RFC 8446, or a protocol of equivalent strength.
+
+The entity may use an earlier protocol version on an internal network segment that carries no member data.","5.2.1.a Examine the configuration of a sample of external connections to verify that they accept only the protocol versions that the requirement allows.
+5.2.1.b Observe a sample of transmissions to verify that member data is encrypted in transit.","Networks outside the control of the entity include the internet, wireless networks and links operated by third parties. Figure 1 shows where encryption applies.",1.0.0
+REQ-6.1.1,6.1.1,6,Logging and monitoring,6.1,Audit logs,Recording of access to member data,"The entity shall record every access to member data in an audit log. Each log entry shall include:
+
+- the user identifier;
+- the date and time, in the format that IETF RFC 3339 specifies;
+- the action performed;
+- whether the action succeeded.","6.1.1.a Examine logging configurations to verify that access to member data is recorded.
+6.1.1.b Examine a sample of log entries to verify that each one includes all the listed fields.",A log that omits the user identifier cannot support an investigation. A single time format across all system components makes it possible to place events in order.,1.0.0
+REQ-6.1.2,6.1.2,6,Logging and monitoring,6.1,Audit logs,Retention and review of audit logs,"The entity shall keep audit logs for at least 12 months, and shall review them for unusual activity at least once each week.","6.1.2.a Examine log storage to verify that audit logs from the last 12 months are available.
+6.1.2.b Examine review records to verify that reviews took place at least once each week.
+6.1.2.c Interview the people responsible to verify that they follow up on unusual activity.",Many incidents are discovered months after they begin. Automated alerting can support the weekly review but does not replace it.,1.0.0

@@ -1,0 +1,19 @@
+﻿procedure_id,requirement_id,label,procedure_text,standard_version
+TP-4.1.1.a,REQ-4.1.1,4.1.1.a,Examine the account management procedure to verify that it requires a unique user identifier for each person and each automated process.,1.0.0
+TP-4.1.1.b,REQ-4.1.1,4.1.1.b,Examine the account list of a sample of system components to verify that no user identifier is assigned to more than one person.,1.0.0
+TP-4.1.2.a,REQ-4.1.2,4.1.2.a,Examine the leaver procedure to verify that it defines who disables user identifiers and within what time.,1.0.0
+TP-4.1.2.b,REQ-4.1.2,4.1.2.b,Examine records for a sample of people who left in the last six months to verify that their user identifiers were disabled within one business day.,1.0.0
+TP-4.2.1.a,REQ-4.2.1,4.2.1.a,Examine review records to verify that reviews took place at the frequency that Table 1 specifies.,1.0.0
+TP-4.2.1.b,REQ-4.2.1,4.2.1.b,Interview the people responsible to verify that access identified as no longer needed was removed.,1.0.0
+TP-4.2.1.c,REQ-4.2.1,4.2.1.c,Examine a sample of privileged accounts to verify that each one has a documented business reason.,1.0.0
+TP-5.1.1.a,REQ-5.1.1,5.1.1.a,Examine system configurations to verify that stored member data is encrypted with strong cryptography.,1.0.0
+TP-5.1.1.b,REQ-5.1.1,5.1.1.b,Examine key storage locations to verify that keys are not stored with the data that they protect.,1.0.0
+TP-5.1.2.a,REQ-5.1.2,5.1.2.a,Examine the retention policy to verify that it defines a retention period for each category of member data.,1.0.0
+TP-5.1.2.b,REQ-5.1.2,5.1.2.b,Examine a sample of data stores to verify that they hold no member data older than the defined retention period.,1.0.0
+TP-5.2.1.a,REQ-5.2.1,5.2.1.a,Examine the configuration of a sample of external connections to verify that they accept only the protocol versions that the requirement allows.,1.0.0
+TP-5.2.1.b,REQ-5.2.1,5.2.1.b,Observe a sample of transmissions to verify that member data is encrypted in transit.,1.0.0
+TP-6.1.1.a,REQ-6.1.1,6.1.1.a,Examine logging configurations to verify that access to member data is recorded.,1.0.0
+TP-6.1.1.b,REQ-6.1.1,6.1.1.b,Examine a sample of log entries to verify that each one includes all the listed fields.,1.0.0
+TP-6.1.2.a,REQ-6.1.2,6.1.2.a,Examine log storage to verify that audit logs from the last 12 months are available.,1.0.0
+TP-6.1.2.b,REQ-6.1.2,6.1.2.b,Examine review records to verify that reviews took place at least once each week.,1.0.0
+TP-6.1.2.c,REQ-6.1.2,6.1.2.c,Interview the people responsible to verify that they follow up on unusual activity.,1.0.0

@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.26">
+<meta name="description" content="Requirements and testing procedures for organisations that store, process or transmit member data.">
+<title>Norma de custodia de datos de miembros</title>
+<style>
+/* Stylesheet for the HTML edition and, through WeasyPrint, the PDF edition.
+   Uses logical properties throughout so right-to-left editions need no changes. */
+:root { --text: #1a1a1a; --muted: #4a4a4a; --link: #0b4f9e; --rule: #767676; --panel: #f3f5f7; --accent: #7a2e00; }
+* { box-sizing: border-box; }
+html { font-size: 100%; }
+body { margin: 0; color: var(--text); background: #fff; line-height: 1.55;
+  font-family: "Noto Sans", "Noto Sans CJK JP", "DejaVu Sans", sans-serif; }
+#header, #content, #footer, #footnotes { max-inline-size: 52rem; margin-inline: auto; padding-inline: 1.25rem; }
+h1 { font-size: 2rem; line-height: 1.2; margin-block: 2rem 0.5rem; }
+h2 { font-size: 1.5rem; margin-block-start: 2.5rem; border-block-end: 2px solid var(--rule); padding-block-end: 0.25rem; }
+h3 { font-size: 1.25rem; margin-block-start: 2rem; }
+h4 { font-size: 1.1rem; margin-block-start: 1.75rem; }
+a { color: var(--link); text-decoration: underline; }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.details, #footer-text { color: var(--muted); font-size: 0.9rem; }
+#toc ul { list-style: none; padding-inline-start: 1.25rem; }
+#toc > ul { padding-inline-start: 0; }
+#toctitle, .title { font-weight: 700; }
+div.title, caption.title, dl.testing ~ .title { margin-block: 1rem 0.35rem; }
+table { border-collapse: collapse; inline-size: 100%; margin-block: 0.5rem 1.5rem; }
+caption { text-align: start; }
+th, td { border: 1px solid var(--rule); padding: 0.4rem 0.6rem; vertical-align: top; text-align: start; }
+thead th { background: var(--panel); }
+th p, td p { margin: 0; }
+.sect3.requirement { border-inline-start: 4px solid var(--accent); padding-inline-start: 1rem; margin-block: 1.5rem; }
+.statement { font-weight: 600; }
+.statement p { margin-block: 0.5rem; }
+.dlist.testing dt { font-weight: 700; margin-block-start: 0.5rem; }
+.dlist.testing dd { margin-inline-start: 1.5rem; }
+.sidebarblock.guidance { background: var(--panel); padding: 0.75rem 1rem; margin-block: 1rem; }
+.sidebarblock.guidance p { margin-block: 0.25rem; }
+.comment-link { font-size: 0.9rem; }
+.imageblock img { max-inline-size: 100%; block-size: auto; }
+#footnotes hr { border: 0; border-block-start: 1px solid var(--rule); }
+#footer { margin-block: 3rem 2rem; border-block-start: 1px solid var(--rule); }
+dl dt { font-weight: 700; }
+
+@page { size: A4; margin: 22mm 18mm 22mm 18mm;
+  @bottom-center { content: counter(page); font-family: "Noto Sans", "DejaVu Sans", sans-serif; font-size: 9pt; } }
+@media print {
+  body { font-size: 10.5pt; }
+  #header, #content, #footer, #footnotes { max-inline-size: none; padding-inline: 0; }
+  h2 { break-before: page; }
+  h1, h2, h3, h4, caption, dt { break-after: avoid; }
+  tr, .sidebarblock, .imageblock { break-inside: avoid; }
+  thead { display: table-header-group; }
+  .comment-link { display: none; }
+  a { color: var(--text); }
+  #toc a::after { content: leader(".") target-counter(attr(href), page); }
+  #toc a { text-decoration: none; }
+}
+
+/* Asciidoctor wraps list item text in <p>. Flattening it keeps the PDF list
+   structure valid for PDF/UA (a list item holds only its label and body). */
+li > p:only-child { display: inline; }
+
+</style>
+</head>
+<body class="article">
+<div id="header">
+<h1>Norma de custodia de datos de miembros</h1>
+<div class="details">
+<span id="revnumber">version 1.0.0,</span>
+<span id="revdate">2026-11-17</span>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph informative">
+<p>This document is a demonstration standard. It defines security requirements, testing procedures and guidance for any organisation that stores, processes or transmits member data. It is published in HTML, PDF, OSCAL and spreadsheet form from a single source.</p>
+</div>
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Índice</div>
+<ul class="sectlevel1">
+<li><a href="#scope">1. Alcance</a>
+<ul class="sectlevel2">
+<li><a href="#conformance-language">1.1. Lenguaje de los requisitos</a></li>
+</ul>
+</li>
+<li><a href="#normative-references">2. Referencias normativas</a></li>
+<li><a href="#terms">3. Términos y definiciones</a></li>
+<li><a href="#access-management">4. Gestión de accesos</a>
+<ul class="sectlevel2">
+<li><a href="#identification">4.1. Identificación</a>
+<ul class="sectlevel3">
+<li><a href="#REQ-4.1.1">4.1.1. Identificadores de usuario únicos</a></li>
+<li><a href="#REQ-4.1.2">4.1.2. Retirada del acceso al cesar la relación</a></li>
+</ul>
+</li>
+<li><a href="#access-review">4.2. Revisión de accesos</a>
+<ul class="sectlevel3">
+<li><a href="#REQ-4.2.1">4.2.1. Revisión periódica de los derechos de acceso</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#data-protection">5. Protección de datos</a>
+<ul class="sectlevel2">
+<li><a href="#storage">5.1. Almacenamiento</a>
+<ul class="sectlevel3">
+<li><a href="#REQ-5.1.1">5.1.1. Encryption of stored member data</a></li>
+<li><a href="#REQ-5.1.2">5.1.2. Retention limits</a></li>
+</ul>
+</li>
+<li><a href="#transmission">5.2. Transmisión</a>
+<ul class="sectlevel3">
+<li><a href="#REQ-5.2.1">5.2.1. Encryption in transit</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#logging-monitoring">6. Registro y supervisión</a>
+<ul class="sectlevel2">
+<li><a href="#audit-logs">6.1. Registros de auditoría</a>
+<ul class="sectlevel3">
+<li><a href="#REQ-6.1.1">6.1.1. Recording of access to member data</a></li>
+<li><a href="#REQ-6.1.2">6.1.2. Retention and review of audit logs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#annex-a">Anexo A: Implementation guidance (informative)</a>
+<ul class="sectlevel2">
+<li><a href="#annex-a-data-flow">A.1. Where encryption applies</a></li>
+<li><a href="#annex-a-summary">A.2. Summary of requirements</a></li>
+</ul>
+</li>
+<li><a href="#bibliography">Bibliografía</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="scope">1. Alcance</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This standard specifies requirements for protecting <a href="#term-member-data">member data</a> throughout its life cycle. It applies to every <a href="#term-entity">entity</a> that stores, processes or transmits member data, and to every <a href="#term-system-component">system component</a> included in, or connected to, the <a href="#term-member-data-environment">member data environment</a>.</p>
+</div>
+<div class="paragraph">
+<p>Esta norma no especifica cómo organiza una entidad a su personal, ni sustituye a las obligaciones legales o contractuales aplicables a la entidad.</p>
+</div>
+<div class="paragraph">
+<p>Cada requisito de los capítulos 4 a 6 consta de cuatro partes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>un identificador estable, que coincide con el número del apartado;</p>
+</li>
+<li>
+<p>el enunciado del requisito, que es normativo;</p>
+</li>
+<li>
+<p>one or more testing procedures, which an <a href="#term-assessor">assessor</a> follows to confirm that the requirement is met;</p>
+</li>
+<li>
+<p>orientación, que es informativa.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="conformance-language">1.1. Lenguaje de los requisitos</h3>
+<div class="paragraph">
+<p>In this standard the word "shall" indicates a requirement, the word "should" indicates a recommendation, and the word "may" indicates a permission. These words carry that meaning only in normative clauses. Guidance, notes, the annex and the bibliography are informative.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="normative-references">2. Referencias normativas</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following documents are referred to in the text in such a way that some or all of their content constitutes requirements of this standard.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a id="ref-rfc8446"></a>IETF RFC 8446, <em>The Transport Layer Security (TLS) Protocol Version 1.3</em>. Available at <a href="https://www.rfc-editor.org/rfc/rfc8446" class="bare">https://www.rfc-editor.org/rfc/rfc8446</a>.</p>
+</li>
+<li>
+<p><a id="ref-rfc3339"></a>IETF RFC 3339, <em>Date and Time on the Internet: Timestamps</em>. Available at <a href="https://www.rfc-editor.org/rfc/rfc3339" class="bare">https://www.rfc-editor.org/rfc/rfc3339</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="terms">3. Términos y definiciones</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A efectos de esta norma, se aplican los términos y definiciones siguientes.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><a id="term-assessor"></a>assessor</dt>
+<dd>
+<p>person or organisation that evaluates whether an entity meets the requirements of this standard</p>
+</dd>
+<dt class="hdlist1"><a id="term-entity"></a>entity</dt>
+<dd>
+<p>organización que almacena, procesa o transmite datos de miembros</p>
+</dd>
+<dt class="hdlist1"><a id="term-member-data"></a>member data</dt>
+<dd>
+<p>information that identifies a member, together with any account or transaction information linked to that member</p>
+</dd>
+<dt class="hdlist1"><a id="term-member-data-environment"></a>member data environment</dt>
+<dd>
+<p>people, processes and system components that store, process or transmit member data</p>
+</dd>
+<dt class="hdlist1"><a id="term-privileged-account"></a>privileged account</dt>
+<dd>
+<p>account with permissions beyond those of a standard user, such as the ability to change security settings or read all member data</p>
+</dd>
+<dt class="hdlist1"><a id="term-strong-cryptography"></a>strong cryptography</dt>
+<dd>
+<p>cryptography based on publicly reviewed algorithms with an effective key strength of at least 128 bits</p>
+</dd>
+<dt class="hdlist1"><a id="term-system-component"></a>system component</dt>
+<dd>
+<p>network device, server, computing device, virtual component or application included in or connected to the member data environment</p>
+</dd>
+<dt class="hdlist1"><a id="term-user-identifier"></a>user identifier</dt>
+<dd>
+<p>value that uniquely identifies one person or one automated process to a system component</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="access-management">4. Gestión de accesos</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>El acceso a los datos de miembros se limita a las personas y procesos que lo necesitan, y toda acción puede atribuirse a la persona o proceso que la realizó.</p>
+</div>
+<div class="sect2">
+<h3 id="identification">4.1. Identificación</h3>
+<div class="sect3 requirement">
+<h4 id="REQ-4.1.1">4.1.1. Identificadores de usuario únicos</h4>
+<div class="openblock statement">
+<div class="content">
+<div class="paragraph">
+<p>The entity shall assign a unique <a href="#term-user-identifier">user identifier</a> to each person and each automated process before allowing access to any <a href="#term-system-component">system component</a>.</p>
+</div>
+</div>
+</div>
+<div class="dlist testing">
+<div class="title">Procedimientos de prueba</div>
+<dl>
+<dt class="hdlist1"><a id="TP-4.1.1.a"></a>4.1.1.a</dt>
+<dd>
+<p>Examine the account management procedure to verify that it requires a unique user identifier for each person and each automated process.</p>
+</dd>
+<dt class="hdlist1"><a id="TP-4.1.1.b"></a>4.1.1.b</dt>
+<dd>
+<p>Examine the account list of a sample of system components to verify that no user identifier is assigned to more than one person.</p>
+</dd>
+</dl>
+</div>
+<div class="sidebarblock guidance">
+<div class="content">
+<div class="title">Orientación</div>
+<div class="paragraph">
+<p>When several people share one identifier, actions cannot be traced to an individual. Service accounts used by software are in scope: each one needs its own identifier and a named owner.</p>
+</div>
+</div>
+</div>
+<div class="paragraph comment-link">
+<p><a href="https://github.com/dug-21/publishing/issues/new?template=requirement-comment.yml&amp;requirement-id=REQ-4.1.1&amp;title=%5BREQ-4.1.1%5D%20">Comentar el requisito 4.1.1</a></p>
+</div>
+</div>
+<div class="sect3 requirement">
+<h4 id="REQ-4.1.2">4.1.2. Retirada del acceso al cesar la relación</h4>
+<div class="openblock statement">
+<div class="content">
+<div class="paragraph">
+<p>La entidad debe deshabilitar los identificadores de usuario de una persona en el plazo de un día hábil desde que dicha persona abandone la entidad.</p>
+</div>
+</div>
+</div>
+<div class="dlist testing">
+<div class="title">Procedimientos de prueba</div>
+<dl>
+<dt class="hdlist1"><a id="TP-4.1.2.a"></a>4.1.2.a</dt>
+<dd>
+<p>Examinar el procedimiento de bajas para verificar que define quién deshabilita los identificadores de usuario y en qué plazo.</p>
+</dd>
+<dt class="hdlist1"><a id="TP-4.1.2.b"></a>4.1.2.b</dt>
+<dd>
+<p>Examine records for a sample of people who left in the last six months to verify that their user identifiers were disabled within one business day.</p>
+</dd>
+</dl>
+</div>
+<div class="sidebarblock guidance">
+<div class="content">
+<div class="title">Orientación</div>
+<div class="paragraph">
+<p>Accounts that remain active after a person leaves are a common route for unauthorised access. Linking the leaver procedure to the human resources system reduces the delay.</p>
+</div>
+</div>
+</div>
+<div class="paragraph comment-link">
+<p><a href="https://github.com/dug-21/publishing/issues/new?template=requirement-comment.yml&amp;requirement-id=REQ-4.1.2&amp;title=%5BREQ-4.1.2%5D%20">Comentar el requisito 4.1.2</a></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="access-review">4.2. Revisión de accesos</h3>
+<div class="sect3 requirement">
+<h4 id="REQ-4.2.1">4.2.1. Revisión periódica de los derechos de acceso</h4>
+<div class="openblock statement">
+<div class="content">
+<div class="paragraph">
+<p>The entity shall review access rights at least as often as <a href="#table-review-frequency">Tabla 1</a> specifies, and shall remove any access that is no longer needed.</p>
+</div>
+<div class="paragraph">
+<p>The entity should record the outcome of each review, including the name of the reviewer.</p>
+</div>
+</div>
+</div>
+<div class="dlist testing">
+<div class="title">Procedimientos de prueba</div>
+<dl>
+<dt class="hdlist1"><a id="TP-4.2.1.a"></a>4.2.1.a</dt>
+<dd>
+<p>Examine review records to verify that reviews took place at the frequency that <a href="#table-review-frequency">Tabla 1</a> specifies.</p>
+</dd>
+<dt class="hdlist1"><a id="TP-4.2.1.b"></a>4.2.1.b</dt>
+<dd>
+<p>Interview the people responsible to verify that access identified as no longer needed was removed.</p>
+</dd>
+<dt class="hdlist1"><a id="TP-4.2.1.c"></a>4.2.1.c</dt>
+<dd>
+<p>Examine a sample of <a href="#term-privileged-account">privileged accounts</a> to verify that each one has a documented business reason.</p>
+</dd>
+</dl>
+</div>
+<div class="sidebarblock guidance">
+<div class="content">
+<div class="title">Orientación</div>
+<div class="paragraph">
+<p>Access tends to accumulate as people change roles. A review is most effective when the person who performs it understands what each role needs.</p>
+</div>
+</div>
+</div>
+<table id="table-review-frequency" class="tableblock frame-all grid-all stretch">
+<caption class="title">Tabla 1. Frecuencia mínima de las revisiones de acceso</caption>
+<colgroup>
+<col style="width: 28.5714%;">
+<col style="width: 28.5714%;">
+<col style="width: 42.8572%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Tipo de cuenta</th>
+<th class="tableblock halign-left valign-top">Frecuencia mínima de revisión</th>
+<th class="tableblock halign-left valign-top">Revisor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Standard user account</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cada 12 meses</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Line manager of the account holder</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock"><a href="#term-privileged-account">Privileged account</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cada 3 meses</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System owner</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">After any change of role</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System owner and security function</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Account used by an automated process</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cada 6 meses</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Named owner of the process</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph comment-link">
+<p><a href="https://github.com/dug-21/publishing/issues/new?template=requirement-comment.yml&amp;requirement-id=REQ-4.2.1&amp;title=%5BREQ-4.2.1%5D%20">Comentar el requisito 4.2.1</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="data-protection">5. Protección de datos</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Member data is unreadable to anyone who obtains it without authorisation, whether it is stored or in transit.</p>
+</div>
+<div class="sect2">
+<h3 id="storage">5.1. Almacenamiento</h3>
+<div class="sect3 requirement">
+<h4 id="REQ-5.1.1">5.1.1. Encryption of stored member data</h4>
+<div class="openblock statement">
+<div class="content">
+<div class="paragraph">
+<p>The entity shall render stored <a href="#term-member-data">member data</a> unreadable by using <a href="#term-strong-cryptography">strong cryptography</a>.</p>
+</div>
+<div class="paragraph">
+<p>The entity shall store cryptographic keys separately from the data that they protect.</p>
+</div>
+</div>
+</div>
+<div class="dlist testing">
+<div class="title">Procedimientos de prueba</div>
+<dl>
+<dt class="hdlist1"><a id="TP-5.1.1.a"></a>5.1.1.a</dt>
+<dd>
+<p>Examine system configurations to verify that stored member data is encrypted with strong cryptography.</p>
+</dd>
+<dt class="hdlist1"><a id="TP-5.1.1.b"></a>5.1.1.b</dt>
+<dd>
+<p>Examine key storage locations to verify that keys are not stored with the data that they protect.</p>
+</dd>
+</dl>
+</div>
+<div class="sidebarblock guidance">
+<div class="content">
+<div class="title">Orientación</div>
+<div class="paragraph">
+<p>Encryption protects data only while the keys stay secret. A key stored beside the data that it protects gives little protection if the storage is copied.<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup></p>
+</div>
+</div>
+</div>
+<div class="paragraph comment-link">
+<p><a href="https://github.com/dug-21/publishing/issues/new?template=requirement-comment.yml&amp;requirement-id=REQ-5.1.1&amp;title=%5BREQ-5.1.1%5D%20">Comentar el requisito 5.1.1</a></p>
+</div>
+</div>
+<div class="sect3 requirement">
+<h4 id="REQ-5.1.2">5.1.2. Retention limits</h4>
+<div class="openblock statement">
+<div class="content">
+<div class="paragraph">
+<p>The entity shall define a retention period for each category of member data, and shall securely delete member data when its retention period ends.</p>
+</div>
+</div>
+</div>
+<div class="dlist testing">
+<div class="title">Procedimientos de prueba</div>
+<dl>
+<dt class="hdlist1"><a id="TP-5.1.2.a"></a>5.1.2.a</dt>
+<dd>
+<p>Examine the retention policy to verify that it defines a retention period for each category of member data.</p>
+</dd>
+<dt class="hdlist1"><a id="TP-5.1.2.b"></a>5.1.2.b</dt>
+<dd>
+<p>Examine a sample of data stores to verify that they hold no member data older than the defined retention period.</p>
+</dd>
+</dl>
+</div>
+<div class="sidebarblock guidance">
+<div class="content">
+<div class="title">Orientación</div>
+<div class="paragraph">
+<p>Data that has been deleted cannot be stolen. Automated deletion jobs are more reliable than manual clean-up.</p>
+</div>
+</div>
+</div>
+<div class="paragraph comment-link">
+<p><a href="https://github.com/dug-21/publishing/issues/new?template=requirement-comment.yml&amp;requirement-id=REQ-5.1.2&amp;title=%5BREQ-5.1.2%5D%20">Comentar el requisito 5.1.2</a></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="transmission">5.2. Transmisión</h3>
+<div class="sect3 requirement">
+<h4 id="REQ-5.2.1">5.2.1. Encryption in transit</h4>
+<div class="openblock statement">
+<div class="content">
+<div class="paragraph">
+<p>The entity shall protect member data sent over any network outside its control by using Transport Layer Security version 1.3, as specified in <a href="#ref-rfc8446">IETF RFC 8446</a>, or a protocol of equivalent strength.</p>
+</div>
+<div class="paragraph">
+<p>The entity may use an earlier protocol version on an internal network segment that carries no member data.</p>
+</div>
+</div>
+</div>
+<div class="dlist testing">
+<div class="title">Procedimientos de prueba</div>
+<dl>
+<dt class="hdlist1"><a id="TP-5.2.1.a"></a>5.2.1.a</dt>
+<dd>
+<p>Examine the configuration of a sample of external connections to verify that they accept only the protocol versions that the requirement allows.</p>
+</dd>
+<dt class="hdlist1"><a id="TP-5.2.1.b"></a>5.2.1.b</dt>
+<dd>
+<p>Observe a sample of transmissions to verify that member data is encrypted in transit.</p>
+</dd>
+</dl>
+</div>
+<div class="sidebarblock guidance">
+<div class="content">
+<div class="title">Orientación</div>
+<div class="paragraph">
+<p>Networks outside the control of the entity include the internet, wireless networks and links operated by third parties. <a href="#figure-data-flow">Figura 1</a> shows where encryption applies.</p>
+</div>
+</div>
+</div>
+<div class="paragraph comment-link">
+<p><a href="https://github.com/dug-21/publishing/issues/new?template=requirement-comment.yml&amp;requirement-id=REQ-5.2.1&amp;title=%5BREQ-5.2.1%5D%20">Comentar el requisito 5.2.1</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="logging-monitoring">6. Registro y supervisión</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Activity that affects member data is recorded, kept and reviewed so that misuse can be detected and investigated.</p>
+</div>
+<div class="sect2">
+<h3 id="audit-logs">6.1. Registros de auditoría</h3>
+<div class="sect3 requirement">
+<h4 id="REQ-6.1.1">6.1.1. Recording of access to member data</h4>
+<div class="openblock statement">
+<div class="content">
+<div class="paragraph">
+<p>The entity shall record every access to member data in an audit log. Each log entry shall include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the <a href="#term-user-identifier">user identifier</a>;</p>
+</li>
+<li>
+<p>the date and time, in the format that <a href="#ref-rfc3339">IETF RFC 3339</a> specifies;</p>
+</li>
+<li>
+<p>the action performed;</p>
+</li>
+<li>
+<p>whether the action succeeded.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="dlist testing">
+<div class="title">Procedimientos de prueba</div>
+<dl>
+<dt class="hdlist1"><a id="TP-6.1.1.a"></a>6.1.1.a</dt>
+<dd>
+<p>Examine logging configurations to verify that access to member data is recorded.</p>
+</dd>
+<dt class="hdlist1"><a id="TP-6.1.1.b"></a>6.1.1.b</dt>
+<dd>
+<p>Examine a sample of log entries to verify that each one includes all the listed fields.</p>
+</dd>
+</dl>
+</div>
+<div class="sidebarblock guidance">
+<div class="content">
+<div class="title">Orientación</div>
+<div class="paragraph">
+<p>A log that omits the user identifier cannot support an investigation. A single time format across all system components makes it possible to place events in order.</p>
+</div>
+</div>
+</div>
+<div class="paragraph comment-link">
+<p><a href="https://github.com/dug-21/publishing/issues/new?template=requirement-comment.yml&amp;requirement-id=REQ-6.1.1&amp;title=%5BREQ-6.1.1%5D%20">Comentar el requisito 6.1.1</a></p>
+</div>
+</div>
+<div class="sect3 requirement">
+<h4 id="REQ-6.1.2">6.1.2. Retention and review of audit logs</h4>
+<div class="openblock statement">
+<div class="content">
+<div class="paragraph">
+<p>The entity shall keep audit logs for at least 12 months, and shall review them for unusual activity at least once each week.</p>
+</div>
+</div>
+</div>
+<div class="dlist testing">
+<div class="title">Procedimientos de prueba</div>
+<dl>
+<dt class="hdlist1"><a id="TP-6.1.2.a"></a>6.1.2.a</dt>
+<dd>
+<p>Examine log storage to verify that audit logs from the last 12 months are available.</p>
+</dd>
+<dt class="hdlist1"><a id="TP-6.1.2.b"></a>6.1.2.b</dt>
+<dd>
+<p>Examine review records to verify that reviews took place at least once each week.</p>
+</dd>
+<dt class="hdlist1"><a id="TP-6.1.2.c"></a>6.1.2.c</dt>
+<dd>
+<p>Interview the people responsible to verify that they follow up on unusual activity.</p>
+</dd>
+</dl>
+</div>
+<div class="sidebarblock guidance">
+<div class="content">
+<div class="title">Orientación</div>
+<div class="paragraph">
+<p>Many incidents are discovered months after they begin. Automated alerting can support the weekly review but does not replace it.</p>
+</div>
+</div>
+</div>
+<div class="paragraph comment-link">
+<p><a href="https://github.com/dug-21/publishing/issues/new?template=requirement-comment.yml&amp;requirement-id=REQ-6.1.2&amp;title=%5BREQ-6.1.2%5D%20">Comentar el requisito 6.1.2</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 informative">
+<h2 id="annex-a">Anexo A: Implementation guidance (informative)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This annex gives additional information to help an entity apply the requirements. It contains no requirements.</p>
+</div>
+<div class="sect2">
+<h3 id="annex-a-data-flow">A.1. Where encryption applies</h3>
+<div class="paragraph">
+<p><a href="#figure-data-flow">Figura 1</a> shows a typical flow of member data. Encryption in transit, described in <a href="#REQ-5.2.1">Section 5.2.1</a>, applies to the link between the member and the entity. Encryption of stored data, described in <a href="#REQ-5.1.1">Section 5.1.1</a>, applies to the data store.</p>
+</div>
+<div id="figure-data-flow" class="imageblock">
+<div class="content">
+<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgMjAwIiB3aWR0aD0iNjQwIiBoZWlnaHQ9IjIwMCIgcm9sZT0iaW1nIiBmb250LWZhbWlseT0iRGVqYVZ1IFNhbnMsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiPgogIDx0aXRsZT5UeXBpY2FsIGZsb3cgb2YgbWVtYmVyIGRhdGE8L3RpdGxlPgogIDxnIGZpbGw9IiNmZmZmZmYiIHN0cm9rZT0iIzFhMWExYSIgc3Ryb2tlLXdpZHRoPSIyIj4KICAgIDxyZWN0IHg9IjEwIiB5PSI1MCIgd2lkdGg9IjEzMCIgaGVpZ2h0PSI2MCIgcng9IjYiLz4KICAgIDxyZWN0IHg9IjI1MCIgeT0iNTAiIHdpZHRoPSIxNTAiIGhlaWdodD0iNjAiIHJ4PSI2Ii8+CiAgICA8cmVjdCB4PSI0OTAiIHk9IjUwIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjYwIiByeD0iNiIvPgogICAgPHJlY3QgeD0iMjUwIiB5PSIxNTAiIHdpZHRoPSIxNTAiIGhlaWdodD0iNDAiIHJ4PSI2Ii8+CiAgPC9nPgogIDxnIGZpbGw9IiMxYTFhMWEiIHRleHQtYW5jaG9yPSJtaWRkbGUiPgogICAgPHRleHQgeD0iNzUiIHk9Ijg1Ij5NZW1iZXI8L3RleHQ+CiAgICA8dGV4dCB4PSIzMjUiIHk9Ijg1Ij5FbnRpdHkgYXBwbGljYXRpb248L3RleHQ+CiAgICA8dGV4dCB4PSI1NjAiIHk9Ijc4Ij5FbmNyeXB0ZWQ8L3RleHQ+CiAgICA8dGV4dCB4PSI1NjAiIHk9Ijk2Ij5kYXRhIHN0b3JlPC90ZXh0PgogICAgPHRleHQgeD0iMzI1IiB5PSIxNzUiPkF1ZGl0IGxvZ3M8L3RleHQ+CiAgICA8dGV4dCB4PSIxOTUiIHk9IjQwIj5FbmNyeXB0ZWQgaW4gdHJhbnNpdDwvdGV4dD4KICA8L2c+CiAgPGcgc3Ryb2tlPSIjMWExYTFhIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiPgogICAgPHBhdGggZD0iTTE0MCA4MCBIMjQ0Ii8+PHBhdGggZD0iTTQwMCA4MCBINDg0Ii8+PHBhdGggZD0iTTMyNSAxMTAgVjE0NCIvPgogIDwvZz4KICA8ZyBmaWxsPSIjMWExYTFhIj4KICAgIDxwYXRoIGQ9Ik0yNTAgODAgbC0xMCAtNSB2MTAgeiIvPjxwYXRoIGQ9Ik00OTAgODAgbC0xMCAtNSB2MTAgeiIvPjxwYXRoIGQ9Ik0zMjUgMTUwIGwtNSAtMTAgaDEwIHoiLz4KICA8L2c+Cjwvc3ZnPgo=" alt="Diagram: a member sends data over the internet, encrypted in transit, to the application of the entity, which writes it to an encrypted data store. Audit logs record each access." width="640">
+</div>
+<div class="title">Figura 1. Typical flow of member data</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="annex-a-summary">A.2. Summary of requirements</h3>
+<div class="paragraph">
+<p><a href="#table-summary">Tabla 2</a> lists each requirement with the type of evidence that an <a href="#term-assessor">assessor</a> usually examines.</p>
+</div>
+<table id="table-summary" class="tableblock frame-all grid-all stretch">
+<caption class="title">Tabla 2. Requirements and typical evidence</caption>
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 42.8571%;">
+<col style="width: 42.8572%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Requirement</th>
+<th class="tableblock halign-left valign-top">Subject</th>
+<th class="tableblock halign-left valign-top">Typical evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#REQ-4.1.1">Section 4.1.1</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identificadores de usuario únicos</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Account lists, account management procedure</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#REQ-4.1.2">Section 4.1.2</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retirada del acceso al cesar la relación</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Leaver records, account status reports</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#REQ-4.2.1">Section 4.2.1</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Revisión periódica de los derechos de acceso</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Review records</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#REQ-5.1.1">Section 5.1.1</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Encryption of stored member data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">System configurations, key storage inventory</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#REQ-5.1.2">Section 5.1.2</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retention limits</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retention policy, data store samples</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#REQ-5.2.1">Section 5.2.1</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Encryption in transit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Connection configurations, transmission captures</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#REQ-6.1.1">Section 6.1.1</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Recording of access to member data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Logging configurations, log samples</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#REQ-6.1.2">Section 6.1.2</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retention and review of audit logs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Log storage, review records</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1 informative">
+<h2 id="bibliography">Bibliografía</h2>
+<div class="sectionbody">
+<div class="ulist bibliography">
+<ul class="bibliography">
+<li>
+<p><a id="oscal"></a>[1] National Institute of Standards and Technology, <em>Open Security Controls Assessment Language (OSCAL)</em>. Available at <a href="https://pages.nist.gov/OSCAL/" class="bare">https://pages.nist.gov/OSCAL/</a>.</p>
+</li>
+<li>
+<p><a id="wcag22"></a>[2] World Wide Web Consortium, <em>Web Content Accessibility Guidelines (WCAG) 2.2</em>. Available at <a href="https://www.w3.org/TR/WCAG22/" class="bare">https://www.w3.org/TR/WCAG22/</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. Hardware security modules and managed key services are two common ways to separate keys from data.
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version 1.0.0<br>
+</div>
+</div>
+</body>
+</html>

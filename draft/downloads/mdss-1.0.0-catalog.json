@@ -1,0 +1,603 @@
+{
+  "catalog": {
+    "uuid": "075bdd16-0f3d-5786-83a5-fac43e2d49a5",
+    "metadata": {
+      "title": "Member Data Stewardship Standard",
+      "last-modified": "2026-11-17T02:35:38Z",
+      "version": "1.0.0",
+      "oscal-version": "1.2.1"
+    },
+    "groups": [
+      {
+        "id": "access-management",
+        "class": "clause",
+        "title": "Access management",
+        "props": [
+          {
+            "name": "label",
+            "value": "4"
+          }
+        ],
+        "groups": [
+          {
+            "id": "identification",
+            "class": "group",
+            "title": "Identification",
+            "props": [
+              {
+                "name": "label",
+                "value": "4.1"
+              }
+            ],
+            "controls": [
+              {
+                "id": "REQ-4.1.1",
+                "class": "requirement",
+                "title": "Unique user identifiers",
+                "props": [
+                  {
+                    "name": "label",
+                    "value": "4.1.1"
+                  },
+                  {
+                    "name": "sort-id",
+                    "value": "004-001-001"
+                  }
+                ],
+                "parts": [
+                  {
+                    "id": "REQ-4.1.1_smt",
+                    "name": "statement",
+                    "prose": "The entity shall assign a unique user identifier to each person and each automated process before allowing access to any system component."
+                  },
+                  {
+                    "id": "TP-4.1.1.a",
+                    "name": "assessment-method",
+                    "props": [
+                      {
+                        "name": "label",
+                        "value": "4.1.1.a"
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE"
+                      }
+                    ],
+                    "prose": "Examine the account management procedure to verify that it requires a unique user identifier for each person and each automated process."
+                  },
+                  {
+                    "id": "TP-4.1.1.b",
+                    "name": "assessment-method",
+                    "props": [
+                      {
+                        "name": "label",
+                        "value": "4.1.1.b"
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE"
+                      }
+                    ],
+                    "prose": "Examine the account list of a sample of system components to verify that no user identifier is assigned to more than one person."
+                  },
+                  {
+                    "id": "REQ-4.1.1_gdn",
+                    "name": "guidance",
+                    "prose": "When several people share one identifier, actions cannot be traced to an individual. Service accounts used by software are in scope: each one needs its own identifier and a named owner."
+                  }
+                ]
+              },
+              {
+                "id": "REQ-4.1.2",
+                "class": "requirement",
+                "title": "Removal of access on departure",
+                "props": [
+                  {
+                    "name": "label",
+                    "value": "4.1.2"
+                  },
+                  {
+                    "name": "sort-id",
+                    "value": "004-001-002"
+                  }
+                ],
+                "parts": [
+                  {
+                    "id": "REQ-4.1.2_smt",
+                    "name": "statement",
+                    "prose": "The entity shall disable the user identifiers of a person within one business day of that person leaving the entity."
+                  },
+                  {
+                    "id": "TP-4.1.2.a",
+                    "name": "assessment-method",
+                    "props": [
+                      {
+                        "name": "label",
+                        "value": "4.1.2.a"
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE"
+                      }
+                    ],
+                    "prose": "Examine the leaver procedure to verify that it defines who disables user identifiers and within what time."
+                  },
+                  {
+                    "id": "TP-4.1.2.b",
+                    "name": "assessment-method",
+                    "props": [
+                      {
+                        "name": "label",
+                        "value": "4.1.2.b"
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE"
+                      }
+                    ],
+                    "prose": "Examine records for a sample of people who left in the last six months to verify that their user identifiers were disabled within one business day."
+                  },
+                  {
+                    "id": "REQ-4.1.2_gdn",
+                    "name": "guidance",
+                    "prose": "Accounts that remain active after a person leaves are a common route for unauthorised access. Linking the leaver procedure to the human resources system reduces the delay."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "access-review",
+            "class": "group",
+            "title": "Access review",
+            "props": [
+              {
+                "name": "label",
+                "value": "4.2"
+              }
+            ],
+            "controls": [
+              {
+                "id": "REQ-4.2.1",
+                "class": "requirement",
+                "title": "Periodic review of access rights",
+                "props": [
+                  {
+                    "name": "label",
+                    "value": "4.2.1"
+                  },
+                  {
+                    "name": "sort-id",
+                    "value": "004-002-001"
+                  }
+                ],
+                "parts": [
+                  {
+                    "id": "REQ-4.2.1_smt",
+                    "name": "statement",
+                    "prose": "The entity shall review access rights at least as often as Table 1 specifies, and shall remove any access that is no longer needed.\n\nThe entity should record the outcome of each review, including the name of the reviewer."
+                  },
+                  {
+                    "id": "TP-4.2.1.a",
+                    "name": "assessment-method",
+                    "props": [
+                      {
+                        "name": "label",
+                        "value": "4.2.1.a"
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE"
+                      }
+                    ],
+                    "prose": "Examine review records to verify that reviews took place at the frequency that Table 1 specifies."
+                  },
+                  {
+                    "id": "TP-4.2.1.b",
+                    "name": "assessment-method",
+                    "props": [
+                      {
+                        "name": "label",
+                        "value": "4.2.1.b"
+                      },
+                      {
+                        "name": "method",
+                        "value": "INTERVIEW"
+                      }
+                    ],
+                    "prose": "Interview the people responsible to verify that access identified as no longer needed was removed."
+                  },
+                  {
+                    "id": "TP-4.2.1.c",
+                    "name": "assessment-method",
+                    "props": [
+                      {
+                        "name": "label",
+                        "value": "4.2.1.c"
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE"
+                      }
+                    ],
+                    "prose": "Examine a sample of privileged accounts to verify that each one has a documented business reason."
+                  },
+                  {
+                    "id": "REQ-4.2.1_gdn",
+                    "name": "guidance",
+                    "prose": "Access tends to accumulate as people change roles. A review is most effective when the person who performs it understands what each role needs."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "data-protection",
+        "class": "clause",
+        "title": "Data protection",
+        "props": [
+          {
+            "name": "label",
+            "value": "5"
+          }
+        ],
+        "groups": [
+          {
+            "id": "storage",
+            "class": "group",
+            "title": "Storage",
+            "props": [
+              {
+                "name": "label",
+                "value": "5.1"
+              }
+            ],
+            "controls": [
+              {
+                "id": "REQ-5.1.1",
+                "class": "requirement",
+                "title": "Encryption of stored member data",
+                "props": [
+                  {
+                    "name": "label",
+                    "value": "5.1.1"
+                  },
+                  {
+                    "name": "sort-id",
+                    "value": "005-001-001"
+                  }
+                ],
+                "parts": [
+                  {
+                    "id": "REQ-5.1.1_smt",
+                    "name": "statement",
+                    "prose": "The entity shall render stored member data unreadable by using strong cryptography.\n\nThe entity shall store cryptographic keys separately from the data that they protect."
+                  },
+                  {
+                    "id": "TP-5.1.1.a",
+                    "name": "assessment-method",
+                    "props": [
+                      {
+                        "name": "label",
+                        "value": "5.1.1.a"
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE"
+                      }
+                    ],
+                    "prose": "Examine system configurations to verify that stored member data is encrypted with strong cryptography."
+                  },
+                  {
+                    "id": "TP-5.1.1.b",
+                    "name": "assessment-method",
+                    "props": [
+                      {
+                        "name": "label",
+                        "value": "5.1.1.b"
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE"
+                      }
+                    ],
+                    "prose": "Examine key storage locations to verify that keys are not stored with the data that they protect."
+                  },
+                  {
+                    "id": "REQ-5.1.1_gdn",
+                    "name": "guidance",
+                    "prose": "Encryption protects data only while the keys stay secret. A key stored beside the data that it protects gives little protection if the storage is copied."
+                  }
+                ]
+              },
+              {
+                "id": "REQ-5.1.2",
+                "class": "requirement",
+                "title": "Retention limits",
+                "props": [
+                  {
+                    "name": "label",
+                    "value": "5.1.2"
+                  },
+                  {
+                    "name": "sort-id",
+                    "value": "005-001-002"
+                  }
+                ],
+                "parts": [
+                  {
+                    "id": "REQ-5.1.2_smt",
+                    "name": "statement",
+                    "prose": "The entity shall define a retention period for each category of member data, and shall securely delete member data when its retention period ends."
+                  },
+                  {
+                    "id": "TP-5.1.2.a",
+                    "name": "assessment-method",
+                    "props": [
+                      {
+                        "name": "label",
+                        "value": "5.1.2.a"
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE"
+                      }
+                    ],
+                    "prose": "Examine the retention policy to verify that it defines a retention period for each category of member data."
+                  },
+                  {
+                    "id": "TP-5.1.2.b",
+                    "name": "assessment-method",
+                    "props": [
+                      {
+                        "name": "label",
+                        "value": "5.1.2.b"
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE"
+                      }
+                    ],
+                    "prose": "Examine a sample of data stores to verify that they hold no member data older than the defined retention period."
+                  },
+                  {
+                    "id": "REQ-5.1.2_gdn",
+                    "name": "guidance",
+                    "prose": "Data that has been deleted cannot be stolen. Automated deletion jobs are more reliable than manual clean-up."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "transmission",
+            "class": "group",
+            "title": "Transmission",
+            "props": [
+              {
+                "name": "label",
+                "value": "5.2"
+              }
+            ],
+            "controls": [
+              {
+                "id": "REQ-5.2.1",
+                "class": "requirement",
+                "title": "Encryption in transit",
+                "props": [
+                  {
+                    "name": "label",
+                    "value": "5.2.1"
+                  },
+                  {
+                    "name": "sort-id",
+                    "value": "005-002-001"
+                  }
+                ],
+                "parts": [
+                  {
+                    "id": "REQ-5.2.1_smt",
+                    "name": "statement",
+                    "prose": "The entity shall protect member data sent over any network outside its control by using Transport Layer Security version 1.3, as specified in IETF RFC 8446, or a protocol of equivalent strength.\n\nThe entity may use an earlier protocol version on an internal network segment that carries no member data."
+                  },
+                  {
+                    "id": "TP-5.2.1.a",
+                    "name": "assessment-method",
+                    "props": [
+                      {
+                        "name": "label",
+                        "value": "5.2.1.a"
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE"
+                      }
+                    ],
+                    "prose": "Examine the configuration of a sample of external connections to verify that they accept only the protocol versions that the requirement allows."
+                  },
+                  {
+                    "id": "TP-5.2.1.b",
+                    "name": "assessment-method",
+                    "props": [
+                      {
+                        "name": "label",
+                        "value": "5.2.1.b"
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE"
+                      }
+                    ],
+                    "prose": "Observe a sample of transmissions to verify that member data is encrypted in transit."
+                  },
+                  {
+                    "id": "REQ-5.2.1_gdn",
+                    "name": "guidance",
+                    "prose": "Networks outside the control of the entity include the internet, wireless networks and links operated by third parties. Figure 1 shows where encryption applies."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "logging-monitoring",
+        "class": "clause",
+        "title": "Logging and monitoring",
+        "props": [
+          {
+            "name": "label",
+            "value": "6"
+          }
+        ],
+        "groups": [
+          {
+            "id": "audit-logs",
+            "class": "group",
+            "title": "Audit logs",
+            "props": [
+              {
+                "name": "label",
+                "value": "6.1"
+              }
+            ],
+            "controls": [
+              {
+                "id": "REQ-6.1.1",
+                "class": "requirement",
+                "title": "Recording of access to member data",
+                "props": [
+                  {
+                    "name": "label",
+                    "value": "6.1.1"
+                  },
+                  {
+                    "name": "sort-id",
+                    "value": "006-001-001"
+                  }
+                ],
+                "parts": [
+                  {
+                    "id": "REQ-6.1.1_smt",
+                    "name": "statement",
+                    "prose": "The entity shall record every access to member data in an audit log. Each log entry shall include:\n\n- the user identifier;\n- the date and time, in the format that IETF RFC 3339 specifies;\n- the action performed;\n- whether the action succeeded."
+                  },
+                  {
+                    "id": "TP-6.1.1.a",
+                    "name": "assessment-method",
+                    "props": [
+                      {
+                        "name": "label",
+                        "value": "6.1.1.a"
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE"
+                      }
+                    ],
+                    "prose": "Examine logging configurations to verify that access to member data is recorded."
+                  },
+                  {
+                    "id": "TP-6.1.1.b",
+                    "name": "assessment-method",
+                    "props": [
+                      {
+                        "name": "label",
+                        "value": "6.1.1.b"
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE"
+                      }
+                    ],
+                    "prose": "Examine a sample of log entries to verify that each one includes all the listed fields."
+                  },
+                  {
+                    "id": "REQ-6.1.1_gdn",
+                    "name": "guidance",
+                    "prose": "A log that omits the user identifier cannot support an investigation. A single time format across all system components makes it possible to place events in order."
+                  }
+                ]
+              },
+              {
+                "id": "REQ-6.1.2",
+                "class": "requirement",
+                "title": "Retention and review of audit logs",
+                "props": [
+                  {
+                    "name": "label",
+                    "value": "6.1.2"
+                  },
+                  {
+                    "name": "sort-id",
+                    "value": "006-001-002"
+                  }
+                ],
+                "parts": [
+                  {
+                    "id": "REQ-6.1.2_smt",
+                    "name": "statement",
+                    "prose": "The entity shall keep audit logs for at least 12 months, and shall review them for unusual activity at least once each week."
+                  },
+                  {
+                    "id": "TP-6.1.2.a",
+                    "name": "assessment-method",
+                    "props": [
+                      {
+                        "name": "label",
+                        "value": "6.1.2.a"
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE"
+                      }
+                    ],
+                    "prose": "Examine log storage to verify that audit logs from the last 12 months are available."
+                  },
+                  {
+                    "id": "TP-6.1.2.b",
+                    "name": "assessment-method",
+                    "props": [
+                      {
+                        "name": "label",
+                        "value": "6.1.2.b"
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE"
+                      }
+                    ],
+                    "prose": "Examine review records to verify that reviews took place at least once each week."
+                  },
+                  {
+                    "id": "TP-6.1.2.c",
+                    "name": "assessment-method",
+                    "props": [
+                      {
+                        "name": "label",
+                        "value": "6.1.2.c"
+                      },
+                      {
+                        "name": "method",
+                        "value": "INTERVIEW"
+                      }
+                    ],
+                    "prose": "Interview the people responsible to verify that they follow up on unusual activity."
+                  },
+                  {
+                    "id": "REQ-6.1.2_gdn",
+                    "name": "guidance",
+                    "prose": "Many incidents are discovered months after they begin. Automated alerting can support the weekly review but does not replace it."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
