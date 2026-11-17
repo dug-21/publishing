@@ -165,7 +165,7 @@ GitHub Actions (`.github/workflows/ci.yml`) calls the same `make` targets:
 | Push to `main` | The same, then the site is published under `/draft/` |
 | Tag `vX.Y.Z` | The same, then the site is published under `/vX.Y.Z/` and `/latest/`, and a GitHub Release is created with the PDFs, OSCAL catalog, spreadsheets, site archive and checksums |
 
-The tag must match the `VERSION` file. Earlier versions stay on the site; the built site is kept on the `gh-pages` branch. Provenance attestation of release artifacts runs only when the repository is public.
+The tag must match the `VERSION` file. Earlier versions stay on the site. GitHub Pages serves the `gh-pages` branch, which CI rebuilds (Settings → Pages → Deploy from a branch → `gh-pages`). Provenance attestation of release artifacts runs only when the repository is public.
 
 To release: update `VERSION`, merge, then `git tag v$(cat VERSION) && git push --tags`.
 
