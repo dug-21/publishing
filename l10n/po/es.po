@@ -1,0 +1,1073 @@
+# Spanish translations for mdss package
+# Copyright (C) 2026 Free Software Foundation, Inc.
+# This file is distributed under the same license as the mdss package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mdss VERSION\n"
+"POT-Creation-Date: 2026-11-17 01:10+0000\n"
+"PO-Revision-Date: 2026-11-17 01:10+0000\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: Demonstration translation, not reviewed\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. type: Title ==
+#: src/en/01-scope.adoc:2
+#, no-wrap
+msgid "Scope"
+msgstr "Alcance"
+
+#. type: Plain text
+#: src/en/01-scope.adoc:5
+msgid ""
+"This standard specifies requirements for protecting <<term-member-data,member"
+" data>> throughout its life cycle. It applies to every <<term-entity,entity>>"
+" that stores, processes or transmits member data, and to every <<term-system-"
+"component,system component>> included in, or connected to, the <<term-member-"
+"data-environment,member data environment>>."
+msgstr ""
+
+#. type: Plain text
+#: src/en/01-scope.adoc:7
+msgid ""
+"This standard does not specify how an entity organises its staff, and it does"
+" not replace legal or contractual obligations that apply to the entity."
+msgstr ""
+"Esta norma no especifica cómo organiza una entidad a su personal, ni "
+"sustituye a las obligaciones legales o contractuales aplicables a la entidad."
+
+#. type: Plain text
+#: src/en/01-scope.adoc:9
+msgid "Each requirement in clauses 4 to 6 consists of four parts:"
+msgstr "Cada requisito de los capítulos 4 a 6 consta de cuatro partes:"
+
+#. type: Plain text
+#: src/en/01-scope.adoc:11
+msgid "a stable identifier, which matches the clause number;"
+msgstr "un identificador estable, que coincide con el número del apartado;"
+
+#. type: Plain text
+#: src/en/01-scope.adoc:12
+msgid "the requirement statement, which is normative;"
+msgstr "el enunciado del requisito, que es normativo;"
+
+#. type: Plain text
+#: src/en/01-scope.adoc:13
+msgid ""
+"one or more testing procedures, which an <<term-assessor,assessor>> follows "
+"to confirm that the requirement is met;"
+msgstr ""
+
+#. type: Plain text
+#: src/en/01-scope.adoc:14
+msgid "guidance, which is informative."
+msgstr "orientación, que es informativa."
+
+#. type: Title ===
+#: src/en/01-scope.adoc:16
+#, no-wrap
+msgid "Requirement language"
+msgstr "Lenguaje de los requisitos"
+
+#. type: Plain text
+#: src/en/01-scope.adoc:18
+msgid ""
+"In this standard the word \"shall\" indicates a requirement, the word "
+"\"should\" indicates a recommendation, and the word \"may\" indicates a "
+"permission. These words carry that meaning only in normative clauses. "
+"Guidance, notes, the annex and the bibliography are informative."
+msgstr ""
+
+#. type: Title ==
+#: src/en/02-normative-references.adoc:2
+#, no-wrap
+msgid "Normative references"
+msgstr "Referencias normativas"
+
+#. type: Plain text
+#: src/en/02-normative-references.adoc:5
+msgid ""
+"The following documents are referred to in the text in such a way that some "
+"or all of their content constitutes requirements of this standard."
+msgstr ""
+
+#. type: Plain text
+#: src/en/02-normative-references.adoc:7
+msgid ""
+"[[ref-rfc8446]]IETF RFC 8446, _The Transport Layer Security (TLS) Protocol "
+"Version 1.3_. Available at https://www.rfc-editor.org/rfc/rfc8446."
+msgstr ""
+
+#. type: Plain text
+#: src/en/02-normative-references.adoc:7
+msgid ""
+"[[ref-rfc3339]]IETF RFC 3339, _Date and Time on the Internet: Timestamps_. "
+"Available at https://www.rfc-editor.org/rfc/rfc3339."
+msgstr ""
+
+#. type: Title ==
+#: src/en/03-terms.adoc:2
+#, no-wrap
+msgid "Terms and definitions"
+msgstr "Términos y definiciones"
+
+#. type: Plain text
+#: src/en/03-terms.adoc:5
+msgid ""
+"For the purposes of this standard, the following terms and definitions apply."
+msgstr ""
+"A efectos de esta norma, se aplican los términos y definiciones siguientes."
+
+#. type: Labeled list
+#: src/en/03-terms.adoc:6
+#, no-wrap
+msgid "[[term-assessor]]assessor"
+msgstr ""
+
+#. type: Plain text
+#: src/en/03-terms.adoc:8
+msgid ""
+"person or organisation that evaluates whether an entity meets the "
+"requirements of this standard"
+msgstr ""
+
+#. type: Labeled list
+#: src/en/03-terms.adoc:9
+#, no-wrap
+msgid "[[term-entity]]entity"
+msgstr ""
+
+#. type: Plain text
+#: src/en/03-terms.adoc:11
+msgid "organisation that stores, processes or transmits member data"
+msgstr "organización que almacena, procesa o transmite datos de miembros"
+
+#. type: Labeled list
+#: src/en/03-terms.adoc:12
+#, no-wrap
+msgid "[[term-member-data]]member data"
+msgstr ""
+
+#. type: Plain text
+#: src/en/03-terms.adoc:14
+msgid ""
+"information that identifies a member, together with any account or "
+"transaction information linked to that member"
+msgstr ""
+
+#. type: Labeled list
+#: src/en/03-terms.adoc:15
+#, no-wrap
+msgid "[[term-member-data-environment]]member data environment"
+msgstr ""
+
+#. type: Plain text
+#: src/en/03-terms.adoc:17
+msgid ""
+"people, processes and system components that store, process or transmit "
+"member data"
+msgstr ""
+
+#. type: Labeled list
+#: src/en/03-terms.adoc:18
+#, no-wrap
+msgid "[[term-privileged-account]]privileged account"
+msgstr ""
+
+#. type: Plain text
+#: src/en/03-terms.adoc:20
+msgid ""
+"account with permissions beyond those of a standard user, such as the ability"
+" to change security settings or read all member data"
+msgstr ""
+
+#. type: Labeled list
+#: src/en/03-terms.adoc:21
+#, no-wrap
+msgid "[[term-strong-cryptography]]strong cryptography"
+msgstr ""
+
+#. type: Plain text
+#: src/en/03-terms.adoc:23
+msgid ""
+"cryptography based on publicly reviewed algorithms with an effective key "
+"strength of at least 128 bits"
+msgstr ""
+
+#. type: Labeled list
+#: src/en/03-terms.adoc:24
+#, no-wrap
+msgid "[[term-system-component]]system component"
+msgstr ""
+
+#. type: Plain text
+#: src/en/03-terms.adoc:26
+msgid ""
+"network device, server, computing device, virtual component or application "
+"included in or connected to the member data environment"
+msgstr ""
+
+#. type: Labeled list
+#: src/en/03-terms.adoc:27
+#, no-wrap
+msgid "[[term-user-identifier]]user identifier"
+msgstr ""
+
+#. type: Plain text
+#: src/en/03-terms.adoc:28
+msgid ""
+"value that uniquely identifies one person or one automated process to a "
+"system component"
+msgstr ""
+
+#. type: Title ==
+#: src/en/04-access-management.adoc:2
+#, no-wrap
+msgid "Access management"
+msgstr "Gestión de accesos"
+
+#. type: Plain text
+#: src/en/04-access-management.adoc:5
+msgid ""
+"Access to member data is limited to people and processes that need it, and "
+"every action can be traced to the person or process that performed it."
+msgstr ""
+"El acceso a los datos de miembros se limita a las personas y procesos que lo "
+"necesitan, y toda acción puede atribuirse a la persona o proceso que la "
+"realizó."
+
+#. type: Title ===
+#: src/en/04-access-management.adoc:7
+#, no-wrap
+msgid "Identification"
+msgstr "Identificación"
+
+#. type: Table
+#: src/en/04-access-management.adoc:11 src/en/annex-a-guidance.adoc:27
+#, no-wrap
+msgid "Unique user identifiers"
+msgstr "Identificadores de usuario únicos"
+
+#. type: .statement
+#: src/en/04-access-management.adoc:16
+msgid ""
+"The entity shall assign a unique <<term-user-identifier,user identifier>> to "
+"each person and each automated process before allowing access to any <<term-"
+"system-component,system component>>."
+msgstr ""
+
+#. type: Block title
+#: src/en/04-access-management.adoc:19 src/en/04-access-management.adoc:39
+#: src/en/04-access-management.adoc:64 src/en/05-data-protection.adoc:21
+#: src/en/05-data-protection.adoc:41 src/en/05-data-protection.adoc:66
+#: src/en/06-logging-monitoring.adoc:24 src/en/06-logging-monitoring.adoc:44
+#, no-wrap
+msgid "Testing procedures"
+msgstr "Procedimientos de prueba"
+
+#. type: Labeled list
+#: src/en/04-access-management.adoc:20
+#, no-wrap
+msgid "[[TP-4.1.1.a]]4.1.1.a"
+msgstr ""
+
+#. type: .testing
+#: src/en/04-access-management.adoc:21
+msgid ""
+"Examine the account management procedure to verify that it requires a unique "
+"user identifier for each person and each automated process."
+msgstr ""
+
+#. type: Labeled list
+#: src/en/04-access-management.adoc:21
+#, no-wrap
+msgid "[[TP-4.1.1.b]]4.1.1.b"
+msgstr ""
+
+#. type: .testing
+#: src/en/04-access-management.adoc:22
+msgid ""
+"Examine the account list of a sample of system components to verify that no "
+"user identifier is assigned to more than one person."
+msgstr ""
+
+#. type: Block title
+#: src/en/04-access-management.adoc:24 src/en/04-access-management.adoc:44
+#: src/en/04-access-management.adoc:70 src/en/05-data-protection.adoc:26
+#: src/en/05-data-protection.adoc:46 src/en/05-data-protection.adoc:71
+#: src/en/06-logging-monitoring.adoc:29 src/en/06-logging-monitoring.adoc:50
+#, no-wrap
+msgid "Guidance"
+msgstr "Orientación"
+
+#. type: delimited block *
+#: src/en/04-access-management.adoc:27
+msgid ""
+"When several people share one identifier, actions cannot be traced to an "
+"individual. Service accounts used by software are in scope: each one needs "
+"its own identifier and a named owner."
+msgstr ""
+
+#. type: Table
+#: src/en/04-access-management.adoc:31 src/en/annex-a-guidance.adoc:28
+#, no-wrap
+msgid "Removal of access on departure"
+msgstr "Retirada del acceso al cesar la relación"
+
+#. type: .statement
+#: src/en/04-access-management.adoc:36
+msgid ""
+"The entity shall disable the user identifiers of a person within one business"
+" day of that person leaving the entity."
+msgstr ""
+"La entidad debe deshabilitar los identificadores de usuario de una persona en"
+" el plazo de un día hábil desde que dicha persona abandone la entidad."
+
+#. type: Labeled list
+#: src/en/04-access-management.adoc:40
+#, no-wrap
+msgid "[[TP-4.1.2.a]]4.1.2.a"
+msgstr ""
+
+#. type: .testing
+#: src/en/04-access-management.adoc:41
+msgid ""
+"Examine the leaver procedure to verify that it defines who disables user "
+"identifiers and within what time."
+msgstr ""
+"Examinar el procedimiento de bajas para verificar que define quién "
+"deshabilita los identificadores de usuario y en qué plazo."
+
+#. type: Labeled list
+#: src/en/04-access-management.adoc:41
+#, no-wrap
+msgid "[[TP-4.1.2.b]]4.1.2.b"
+msgstr ""
+
+#. type: .testing
+#: src/en/04-access-management.adoc:42
+msgid ""
+"Examine records for a sample of people who left in the last six months to "
+"verify that their user identifiers were disabled within one business day."
+msgstr ""
+
+#. type: delimited block *
+#: src/en/04-access-management.adoc:47
+msgid ""
+"Accounts that remain active after a person leaves are a common route for "
+"unauthorised access. Linking the leaver procedure to the human resources "
+"system reduces the delay."
+msgstr ""
+
+#. type: Title ===
+#: src/en/04-access-management.adoc:50
+#, no-wrap
+msgid "Access review"
+msgstr "Revisión de accesos"
+
+#. type: Table
+#: src/en/04-access-management.adoc:54 src/en/annex-a-guidance.adoc:29
+#, no-wrap
+msgid "Periodic review of access rights"
+msgstr "Revisión periódica de los derechos de acceso"
+
+#. type: .statement
+#: src/en/04-access-management.adoc:59
+msgid ""
+"The entity shall review access rights at least as often as <<table-review-"
+"frequency>> specifies, and shall remove any access that is no longer needed."
+msgstr ""
+
+#. type: .statement
+#: src/en/04-access-management.adoc:61
+msgid ""
+"The entity should record the outcome of each review, including the name of "
+"the reviewer."
+msgstr ""
+
+#. type: Labeled list
+#: src/en/04-access-management.adoc:65
+#, no-wrap
+msgid "[[TP-4.2.1.a]]4.2.1.a"
+msgstr ""
+
+#. type: .testing
+#: src/en/04-access-management.adoc:66
+msgid ""
+"Examine review records to verify that reviews took place at the frequency "
+"that <<table-review-frequency>> specifies."
+msgstr ""
+
+#. type: Labeled list
+#: src/en/04-access-management.adoc:66
+#, no-wrap
+msgid "[[TP-4.2.1.b]]4.2.1.b"
+msgstr ""
+
+#. type: .testing
+#: src/en/04-access-management.adoc:67
+msgid ""
+"Interview the people responsible to verify that access identified as no "
+"longer needed was removed."
+msgstr ""
+
+#. type: Labeled list
+#: src/en/04-access-management.adoc:67
+#, no-wrap
+msgid "[[TP-4.2.1.c]]4.2.1.c"
+msgstr ""
+
+#. type: .testing
+#: src/en/04-access-management.adoc:68
+msgid ""
+"Examine a sample of <<term-privileged-account,privileged accounts>> to verify"
+" that each one has a documented business reason."
+msgstr ""
+
+#. type: delimited block *
+#: src/en/04-access-management.adoc:73
+msgid ""
+"Access tends to accumulate as people change roles. A review is most effective"
+" when the person who performs it understands what each role needs."
+msgstr ""
+
+#. type: Block title
+#: src/en/04-access-management.adoc:76
+#, no-wrap
+msgid "Minimum frequency of access reviews"
+msgstr "Frecuencia mínima de las revisiones de acceso"
+
+#. type: Table
+#: src/en/04-access-management.adoc:79
+#, no-wrap
+msgid "Account type"
+msgstr "Tipo de cuenta"
+
+#. type: Table
+#: src/en/04-access-management.adoc:79
+#, no-wrap
+msgid "Minimum review frequency"
+msgstr "Frecuencia mínima de revisión"
+
+#. type: Table
+#: src/en/04-access-management.adoc:81
+#, no-wrap
+msgid "Reviewer"
+msgstr "Revisor"
+
+#. type: Table
+#: src/en/04-access-management.adoc:82
+#, no-wrap
+msgid "Standard user account"
+msgstr ""
+
+#. type: Table
+#: src/en/04-access-management.adoc:83
+#, no-wrap
+msgid "Every 12 months"
+msgstr "Cada 12 meses"
+
+#. type: Table
+#: src/en/04-access-management.adoc:85
+#, no-wrap
+msgid "Line manager of the account holder"
+msgstr ""
+
+#. type: Table
+#: src/en/04-access-management.adoc:86
+#, no-wrap
+msgid "<<term-privileged-account,Privileged account>>"
+msgstr ""
+
+#. type: Table
+#: src/en/04-access-management.adoc:87
+#, no-wrap
+msgid "Every 3 months"
+msgstr "Cada 3 meses"
+
+#. type: Table
+#: src/en/04-access-management.adoc:89
+#, no-wrap
+msgid "System owner"
+msgstr ""
+
+#. type: Table
+#: src/en/04-access-management.adoc:90
+#, no-wrap
+msgid "After any change of role"
+msgstr ""
+
+#. type: Table
+#: src/en/04-access-management.adoc:92
+#, no-wrap
+msgid "System owner and security function"
+msgstr ""
+
+#. type: Table
+#: src/en/04-access-management.adoc:93
+#, no-wrap
+msgid "Account used by an automated process"
+msgstr ""
+
+#. type: Table
+#: src/en/04-access-management.adoc:94
+#, no-wrap
+msgid "Every 6 months"
+msgstr "Cada 6 meses"
+
+#. type: Table
+#: src/en/04-access-management.adoc:95
+#, no-wrap
+msgid "Named owner of the process"
+msgstr ""
+
+#. type: Title ==
+#: src/en/05-data-protection.adoc:2
+#, no-wrap
+msgid "Data protection"
+msgstr "Protección de datos"
+
+#. type: Plain text
+#: src/en/05-data-protection.adoc:5
+msgid ""
+"Member data is unreadable to anyone who obtains it without authorisation, "
+"whether it is stored or in transit."
+msgstr ""
+
+#. type: Title ===
+#: src/en/05-data-protection.adoc:7
+#, no-wrap
+msgid "Storage"
+msgstr "Almacenamiento"
+
+#. type: Table
+#: src/en/05-data-protection.adoc:11 src/en/annex-a-guidance.adoc:30
+#, no-wrap
+msgid "Encryption of stored member data"
+msgstr ""
+
+#. type: .statement
+#: src/en/05-data-protection.adoc:16
+msgid ""
+"The entity shall render stored <<term-member-data,member data>> unreadable by"
+" using <<term-strong-cryptography,strong cryptography>>."
+msgstr ""
+
+#. type: .statement
+#: src/en/05-data-protection.adoc:18
+msgid ""
+"The entity shall store cryptographic keys separately from the data that they "
+"protect."
+msgstr ""
+
+#. type: Labeled list
+#: src/en/05-data-protection.adoc:22
+#, no-wrap
+msgid "[[TP-5.1.1.a]]5.1.1.a"
+msgstr ""
+
+#. type: .testing
+#: src/en/05-data-protection.adoc:23
+msgid ""
+"Examine system configurations to verify that stored member data is encrypted "
+"with strong cryptography."
+msgstr ""
+
+#. type: Labeled list
+#: src/en/05-data-protection.adoc:23
+#, no-wrap
+msgid "[[TP-5.1.1.b]]5.1.1.b"
+msgstr ""
+
+#. type: .testing
+#: src/en/05-data-protection.adoc:24
+msgid ""
+"Examine key storage locations to verify that keys are not stored with the "
+"data that they protect."
+msgstr ""
+
+#. type: delimited block *
+#: src/en/05-data-protection.adoc:29
+msgid ""
+"Encryption protects data only while the keys stay secret. A key stored beside"
+" the data that it protects gives little protection if the storage is "
+"copied.footnote:[Hardware security modules and managed key services are two "
+"common ways to separate keys from data.]"
+msgstr ""
+
+#. type: Table
+#: src/en/05-data-protection.adoc:33 src/en/annex-a-guidance.adoc:31
+#, no-wrap
+msgid "Retention limits"
+msgstr ""
+
+#. type: .statement
+#: src/en/05-data-protection.adoc:38
+msgid ""
+"The entity shall define a retention period for each category of member data, "
+"and shall securely delete member data when its retention period ends."
+msgstr ""
+
+#. type: Labeled list
+#: src/en/05-data-protection.adoc:42
+#, no-wrap
+msgid "[[TP-5.1.2.a]]5.1.2.a"
+msgstr ""
+
+#. type: .testing
+#: src/en/05-data-protection.adoc:43
+msgid ""
+"Examine the retention policy to verify that it defines a retention period for"
+" each category of member data."
+msgstr ""
+
+#. type: Labeled list
+#: src/en/05-data-protection.adoc:43
+#, no-wrap
+msgid "[[TP-5.1.2.b]]5.1.2.b"
+msgstr ""
+
+#. type: .testing
+#: src/en/05-data-protection.adoc:44
+msgid ""
+"Examine a sample of data stores to verify that they hold no member data older"
+" than the defined retention period."
+msgstr ""
+
+#. type: delimited block *
+#: src/en/05-data-protection.adoc:49
+msgid ""
+"Data that has been deleted cannot be stolen. Automated deletion jobs are more"
+" reliable than manual clean-up."
+msgstr ""
+
+#. type: Title ===
+#: src/en/05-data-protection.adoc:52
+#, no-wrap
+msgid "Transmission"
+msgstr "Transmisión"
+
+#. type: Table
+#: src/en/05-data-protection.adoc:56 src/en/annex-a-guidance.adoc:32
+#, no-wrap
+msgid "Encryption in transit"
+msgstr ""
+
+#. type: .statement
+#: src/en/05-data-protection.adoc:61
+msgid ""
+"The entity shall protect member data sent over any network outside its "
+"control by using Transport Layer Security version 1.3, as specified in <<ref-"
+"rfc8446,IETF RFC 8446>>, or a protocol of equivalent strength."
+msgstr ""
+
+#. type: .statement
+#: src/en/05-data-protection.adoc:63
+msgid ""
+"The entity may use an earlier protocol version on an internal network segment"
+" that carries no member data."
+msgstr ""
+
+#. type: Labeled list
+#: src/en/05-data-protection.adoc:67
+#, no-wrap
+msgid "[[TP-5.2.1.a]]5.2.1.a"
+msgstr ""
+
+#. type: .testing
+#: src/en/05-data-protection.adoc:68
+msgid ""
+"Examine the configuration of a sample of external connections to verify that "
+"they accept only the protocol versions that the requirement allows."
+msgstr ""
+
+#. type: Labeled list
+#: src/en/05-data-protection.adoc:68
+#, no-wrap
+msgid "[[TP-5.2.1.b]]5.2.1.b"
+msgstr ""
+
+#. type: .testing
+#: src/en/05-data-protection.adoc:69
+msgid ""
+"Observe a sample of transmissions to verify that member data is encrypted in "
+"transit."
+msgstr ""
+
+#. type: delimited block *
+#: src/en/05-data-protection.adoc:74
+msgid ""
+"Networks outside the control of the entity include the internet, wireless "
+"networks and links operated by third parties. <<figure-data-flow>> shows "
+"where encryption applies."
+msgstr ""
+
+#. type: Title ==
+#: src/en/06-logging-monitoring.adoc:2
+#, no-wrap
+msgid "Logging and monitoring"
+msgstr "Registro y supervisión"
+
+#. type: Plain text
+#: src/en/06-logging-monitoring.adoc:5
+msgid ""
+"Activity that affects member data is recorded, kept and reviewed so that "
+"misuse can be detected and investigated."
+msgstr ""
+
+#. type: Title ===
+#: src/en/06-logging-monitoring.adoc:7
+#, no-wrap
+msgid "Audit logs"
+msgstr "Registros de auditoría"
+
+#. type: Table
+#: src/en/06-logging-monitoring.adoc:11 src/en/annex-a-guidance.adoc:33
+#, no-wrap
+msgid "Recording of access to member data"
+msgstr ""
+
+#. type: .statement
+#: src/en/06-logging-monitoring.adoc:16
+msgid ""
+"The entity shall record every access to member data in an audit log. Each log"
+" entry shall include:"
+msgstr ""
+
+#. type: .statement
+#: src/en/06-logging-monitoring.adoc:18
+msgid "the <<term-user-identifier,user identifier>>;"
+msgstr ""
+
+#. type: .statement
+#: src/en/06-logging-monitoring.adoc:19
+msgid ""
+"the date and time, in the format that <<ref-rfc3339,IETF RFC 3339>> "
+"specifies;"
+msgstr ""
+
+#. type: .statement
+#: src/en/06-logging-monitoring.adoc:20
+msgid "the action performed;"
+msgstr ""
+
+#. type: .statement
+#: src/en/06-logging-monitoring.adoc:21
+msgid "whether the action succeeded."
+msgstr ""
+
+#. type: Labeled list
+#: src/en/06-logging-monitoring.adoc:25
+#, no-wrap
+msgid "[[TP-6.1.1.a]]6.1.1.a"
+msgstr ""
+
+#. type: .testing
+#: src/en/06-logging-monitoring.adoc:26
+msgid ""
+"Examine logging configurations to verify that access to member data is "
+"recorded."
+msgstr ""
+
+#. type: Labeled list
+#: src/en/06-logging-monitoring.adoc:26
+#, no-wrap
+msgid "[[TP-6.1.1.b]]6.1.1.b"
+msgstr ""
+
+#. type: .testing
+#: src/en/06-logging-monitoring.adoc:27
+msgid ""
+"Examine a sample of log entries to verify that each one includes all the "
+"listed fields."
+msgstr ""
+
+#. type: delimited block *
+#: src/en/06-logging-monitoring.adoc:32
+msgid ""
+"A log that omits the user identifier cannot support an investigation. A "
+"single time format across all system components makes it possible to place "
+"events in order."
+msgstr ""
+
+#. type: Table
+#: src/en/06-logging-monitoring.adoc:36 src/en/annex-a-guidance.adoc:34
+#, no-wrap
+msgid "Retention and review of audit logs"
+msgstr ""
+
+#. type: .statement
+#: src/en/06-logging-monitoring.adoc:41
+msgid ""
+"The entity shall keep audit logs for at least 12 months, and shall review "
+"them for unusual activity at least once each week."
+msgstr ""
+
+#. type: Labeled list
+#: src/en/06-logging-monitoring.adoc:45
+#, no-wrap
+msgid "[[TP-6.1.2.a]]6.1.2.a"
+msgstr ""
+
+#. type: .testing
+#: src/en/06-logging-monitoring.adoc:46
+msgid ""
+"Examine log storage to verify that audit logs from the last 12 months are "
+"available."
+msgstr ""
+
+#. type: Labeled list
+#: src/en/06-logging-monitoring.adoc:46
+#, no-wrap
+msgid "[[TP-6.1.2.b]]6.1.2.b"
+msgstr ""
+
+#. type: .testing
+#: src/en/06-logging-monitoring.adoc:47
+msgid ""
+"Examine review records to verify that reviews took place at least once each "
+"week."
+msgstr ""
+
+#. type: Labeled list
+#: src/en/06-logging-monitoring.adoc:47
+#, no-wrap
+msgid "[[TP-6.1.2.c]]6.1.2.c"
+msgstr ""
+
+#. type: .testing
+#: src/en/06-logging-monitoring.adoc:48
+msgid ""
+"Interview the people responsible to verify that they follow up on unusual "
+"activity."
+msgstr ""
+
+#. type: delimited block *
+#: src/en/06-logging-monitoring.adoc:53
+msgid ""
+"Many incidents are discovered months after they begin. Automated alerting can"
+" support the weekly review but does not replace it."
+msgstr ""
+
+#. type: Title ==
+#: src/en/annex-a-guidance.adoc:3
+#, no-wrap
+msgid "Implementation guidance (informative)"
+msgstr ""
+
+#. type: appendix.informative
+#: src/en/annex-a-guidance.adoc:6
+msgid ""
+"This annex gives additional information to help an entity apply the "
+"requirements. It contains no requirements."
+msgstr ""
+
+#. type: Title ===
+#: src/en/annex-a-guidance.adoc:8
+#, no-wrap
+msgid "Where encryption applies"
+msgstr ""
+
+#. type: appendix.informative
+#: src/en/annex-a-guidance.adoc:11
+msgid ""
+"<<figure-data-flow>> shows a typical flow of member data. Encryption in "
+"transit, described in <<REQ-5.2.1>>, applies to the link between the member "
+"and the entity. Encryption of stored data, described in <<REQ-5.1.1>>, "
+"applies to the data store."
+msgstr ""
+
+#. type: Block title
+#: src/en/annex-a-guidance.adoc:13
+#, no-wrap
+msgid "Typical flow of member data"
+msgstr ""
+
+#. type: Named 'alt' AttributeList argument for macro 'image'
+#: src/en/annex-a-guidance.adoc:14
+#, no-wrap
+msgid ""
+"Diagram: a member sends data over the internet, encrypted in transit, to the "
+"application of the entity, which writes it to an encrypted data store. Audit "
+"logs record each access."
+msgstr ""
+
+#. type: Target for macro image
+#: src/en/annex-a-guidance.adoc:14
+#, no-wrap
+msgid "data-flow.svg"
+msgstr ""
+
+#. type: Title ===
+#: src/en/annex-a-guidance.adoc:17
+#, no-wrap
+msgid "Summary of requirements"
+msgstr ""
+
+#. type: appendix.informative
+#: src/en/annex-a-guidance.adoc:20
+msgid ""
+"<<table-summary>> lists each requirement with the type of evidence that an "
+"<<term-assessor,assessor>> usually examines."
+msgstr ""
+
+#. type: Block title
+#: src/en/annex-a-guidance.adoc:22
+#, no-wrap
+msgid "Requirements and typical evidence"
+msgstr ""
+
+#. type: Table
+#: src/en/annex-a-guidance.adoc:25
+#, no-wrap
+msgid "Requirement"
+msgstr ""
+
+#. type: Table
+#: src/en/annex-a-guidance.adoc:25
+#, no-wrap
+msgid "Subject"
+msgstr ""
+
+#. type: Table
+#: src/en/annex-a-guidance.adoc:27
+#, no-wrap
+msgid "Typical evidence"
+msgstr ""
+
+#. type: Table
+#: src/en/annex-a-guidance.adoc:27
+#, no-wrap
+msgid "<<REQ-4.1.1>>"
+msgstr ""
+
+#. type: Table
+#: src/en/annex-a-guidance.adoc:28
+#, no-wrap
+msgid "Account lists, account management procedure"
+msgstr ""
+
+#. type: Table
+#: src/en/annex-a-guidance.adoc:28
+#, no-wrap
+msgid "<<REQ-4.1.2>>"
+msgstr ""
+
+#. type: Table
+#: src/en/annex-a-guidance.adoc:29
+#, no-wrap
+msgid "Leaver records, account status reports"
+msgstr ""
+
+#. type: Table
+#: src/en/annex-a-guidance.adoc:29
+#, no-wrap
+msgid "<<REQ-4.2.1>>"
+msgstr ""
+
+#. type: Table
+#: src/en/annex-a-guidance.adoc:30
+#, no-wrap
+msgid "Review records"
+msgstr ""
+
+#. type: Table
+#: src/en/annex-a-guidance.adoc:30
+#, no-wrap
+msgid "<<REQ-5.1.1>>"
+msgstr ""
+
+#. type: Table
+#: src/en/annex-a-guidance.adoc:31
+#, no-wrap
+msgid "System configurations, key storage inventory"
+msgstr ""
+
+#. type: Table
+#: src/en/annex-a-guidance.adoc:31
+#, no-wrap
+msgid "<<REQ-5.1.2>>"
+msgstr ""
+
+#. type: Table
+#: src/en/annex-a-guidance.adoc:32
+#, no-wrap
+msgid "Retention policy, data store samples"
+msgstr ""
+
+#. type: Table
+#: src/en/annex-a-guidance.adoc:32
+#, no-wrap
+msgid "<<REQ-5.2.1>>"
+msgstr ""
+
+#. type: Table
+#: src/en/annex-a-guidance.adoc:33
+#, no-wrap
+msgid "Connection configurations, transmission captures"
+msgstr ""
+
+#. type: Table
+#: src/en/annex-a-guidance.adoc:33
+#, no-wrap
+msgid "<<REQ-6.1.1>>"
+msgstr ""
+
+#. type: Table
+#: src/en/annex-a-guidance.adoc:34
+#, no-wrap
+msgid "Logging configurations, log samples"
+msgstr ""
+
+#. type: Table
+#: src/en/annex-a-guidance.adoc:34
+#, no-wrap
+msgid "<<REQ-6.1.2>>"
+msgstr ""
+
+#. type: Table
+#: src/en/annex-a-guidance.adoc:35
+#, no-wrap
+msgid "Log storage, review records"
+msgstr ""
+
+#. type: Title ==
+#: src/en/bibliography.adoc:3
+#, no-wrap
+msgid "Bibliography"
+msgstr "Bibliografía"
+
+#. type: bibliography.informative
+#: src/en/bibliography.adoc:6
+msgid ""
+"[[[oscal,1]]] National Institute of Standards and Technology, _Open Security "
+"Controls Assessment Language (OSCAL)_. Available at "
+"https://pages.nist.gov/OSCAL/."
+msgstr ""
+
+#. type: bibliography.informative
+#: src/en/bibliography.adoc:6
+msgid ""
+"[[[wcag22,2]]] World Wide Web Consortium, _Web Content Accessibility "
+"Guidelines (WCAG) 2.2_. Available at https://www.w3.org/TR/WCAG22/."
+msgstr ""
+
+#. type: Title =
+#: src/en/standard.adoc:1
+#, no-wrap
+msgid "Member Data Stewardship Standard"
+msgstr "Norma de custodia de datos de miembros"
+
+#. type: .informative
+#: src/en/standard.adoc:20
+msgid ""
+"This document is a demonstration standard. It defines security requirements, "
+"testing procedures and guidance for any organisation that stores, processes "
+"or transmits member data. It is published in HTML, PDF, OSCAL and spreadsheet"
+" form from a single source."
+msgstr ""

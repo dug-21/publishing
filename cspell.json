@@ -1,0 +1,6 @@
+{
+  "version": "0.2",
+  "language": "en-GB",
+  "words": ["OSCAL", "MDSS", "WCAG", "sectnums", "toclevels", "xrefstyle", "imagesdir", "sectnumlevels", "sectanchors", "footnoteref"],
+  "ignoreRegExpList": ["\\[\\[[^\\]]*\\]\\]\\]?", "<<[^>,]*", "^:[a-z!-]+:.*$", "^include::.*$", "^image::[^\\[]*", "https?://\\S+", "^\\[[^\\]]*\\]$"]
+}

@@ -1,0 +1,53 @@
+[[logging-monitoring]]
+== Logging and monitoring
+
+Activity that affects member data is recorded, kept and reviewed so that misuse can be detected and investigated.
+
+[[audit-logs]]
+=== Audit logs
+
+[[REQ-6.1.1]]
+[.requirement]
+==== Recording of access to member data
+
+[.statement]
+--
+The entity shall record every access to member data in an audit log. Each log entry shall include:
+
+* the <<term-user-identifier,user identifier>>;
+* the date and time, in the format that <<ref-rfc3339,IETF RFC 3339>> specifies;
+* the action performed;
+* whether the action succeeded.
+--
+
+[.testing]
+.Testing procedures
+[[TP-6.1.1.a]]6.1.1.a:: Examine logging configurations to verify that access to member data is recorded.
+[[TP-6.1.1.b]]6.1.1.b:: Examine a sample of log entries to verify that each one includes all the listed fields.
+
+[.guidance]
+.Guidance
+****
+A log that omits the user identifier cannot support an investigation. A single time format across all system components makes it possible to place events in order.
+****
+
+[[REQ-6.1.2]]
+[.requirement]
+==== Retention and review of audit logs
+
+[.statement]
+--
+The entity shall keep audit logs for at least 12 months, and shall review them for unusual activity at least once each week.
+--
+
+[.testing]
+.Testing procedures
+[[TP-6.1.2.a]]6.1.2.a:: Examine log storage to verify that audit logs from the last 12 months are available.
+[[TP-6.1.2.b]]6.1.2.b:: Examine review records to verify that reviews took place at least once each week.
+[[TP-6.1.2.c]]6.1.2.c:: Interview the people responsible to verify that they follow up on unusual activity.
+
+[.guidance]
+.Guidance
+****
+Many incidents are discovered months after they begin. Automated alerting can support the weekly review but does not replace it.
+****

@@ -1,0 +1,18 @@
+[[scope]]
+== Scope
+
+This standard specifies requirements for protecting <<term-member-data,member data>> throughout its life cycle. It applies to every <<term-entity,entity>> that stores, processes or transmits member data, and to every <<term-system-component,system component>> included in, or connected to, the <<term-member-data-environment,member data environment>>.
+
+This standard does not specify how an entity organises its staff, and it does not replace legal or contractual obligations that apply to the entity.
+
+Each requirement in clauses 4 to 6 consists of four parts:
+
+* a stable identifier, which matches the clause number;
+* the requirement statement, which is normative;
+* one or more testing procedures, which an <<term-assessor,assessor>> follows to confirm that the requirement is met;
+* guidance, which is informative.
+
+[[conformance-language]]
+=== Requirement language
+
+In this standard the word "shall" indicates a requirement, the word "should" indicates a recommendation, and the word "may" indicates a permission. These words carry that meaning only in normative clauses. Guidance, notes, the annex and the bibliography are informative.

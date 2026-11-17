@@ -1,0 +1,37 @@
+= Member Data Stewardship Standard
+:doctype: article
+:lang: en
+:sectnums:
+:sectnumlevels: 3
+:toc: macro
+:toclevels: 3
+:toc-title: Contents
+:xrefstyle: short
+:icons!:
+:sectanchors!:
+:appendix-caption: Annex
+:table-caption: Table
+:figure-caption: Figure
+:imagesdir: images
+:description: Requirements and testing procedures for organisations that store, process or transmit member data.
+
+[.informative]
+This document is a demonstration standard. It defines security requirements, testing procedures and guidance for any organisation that stores, processes or transmits member data. It is published in HTML, PDF, OSCAL and spreadsheet form from a single source.
+
+toc::[]
+
+include::01-scope.adoc[]
+
+include::02-normative-references.adoc[]
+
+include::03-terms.adoc[]
+
+include::04-access-management.adoc[]
+
+include::05-data-protection.adoc[]
+
+include::06-logging-monitoring.adoc[]
+
+include::annex-a-guidance.adoc[]
+
+include::bibliography.adoc[]

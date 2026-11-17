@@ -1,0 +1,6 @@
+extends: existence
+message: "Use 'shall' for a requirement; '%s' is not a normative keyword in this standard."
+level: error
+ignorecase: true
+tokens:
+  - must

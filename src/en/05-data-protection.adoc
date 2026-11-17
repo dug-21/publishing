@@ -1,0 +1,74 @@
+[[data-protection]]
+== Data protection
+
+Member data is unreadable to anyone who obtains it without authorisation, whether it is stored or in transit.
+
+[[storage]]
+=== Storage
+
+[[REQ-5.1.1]]
+[.requirement]
+==== Encryption of stored member data
+
+[.statement]
+--
+The entity shall render stored <<term-member-data,member data>> unreadable by using <<term-strong-cryptography,strong cryptography>>.
+
+The entity shall store cryptographic keys separately from the data that they protect.
+--
+
+[.testing]
+.Testing procedures
+[[TP-5.1.1.a]]5.1.1.a:: Examine system configurations to verify that stored member data is encrypted with strong cryptography.
+[[TP-5.1.1.b]]5.1.1.b:: Examine key storage locations to verify that keys are not stored with the data that they protect.
+
+[.guidance]
+.Guidance
+****
+Encryption protects data only while the keys stay secret. A key stored beside the data that it protects gives little protection if the storage is copied.footnote:[Hardware security modules and managed key services are two common ways to separate keys from data.]
+****
+
+[[REQ-5.1.2]]
+[.requirement]
+==== Retention limits
+
+[.statement]
+--
+The entity shall define a retention period for each category of member data, and shall securely delete member data when its retention period ends.
+--
+
+[.testing]
+.Testing procedures
+[[TP-5.1.2.a]]5.1.2.a:: Examine the retention policy to verify that it defines a retention period for each category of member data.
+[[TP-5.1.2.b]]5.1.2.b:: Examine a sample of data stores to verify that they hold no member data older than the defined retention period.
+
+[.guidance]
+.Guidance
+****
+Data that has been deleted cannot be stolen. Automated deletion jobs are more reliable than manual clean-up.
+****
+
+[[transmission]]
+=== Transmission
+
+[[REQ-5.2.1]]
+[.requirement]
+==== Encryption in transit
+
+[.statement]
+--
+The entity shall protect member data sent over any network outside its control by using Transport Layer Security version 1.3, as specified in <<ref-rfc8446,IETF RFC 8446>>, or a protocol of equivalent strength.
+
+The entity may use an earlier protocol version on an internal network segment that carries no member data.
+--
+
+[.testing]
+.Testing procedures
+[[TP-5.2.1.a]]5.2.1.a:: Examine the configuration of a sample of external connections to verify that they accept only the protocol versions that the requirement allows.
+[[TP-5.2.1.b]]5.2.1.b:: Observe a sample of transmissions to verify that member data is encrypted in transit.
+
+[.guidance]
+.Guidance
+****
+Networks outside the control of the entity include the internet, wireless networks and links operated by third parties. <<figure-data-flow>> shows where encryption applies.
+****

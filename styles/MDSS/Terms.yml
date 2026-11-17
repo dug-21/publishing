@@ -1,0 +1,15 @@
+# Defined terms (clause 3) are used as defined; common variants are rejected.
+extends: substitution
+message: "Use the defined term '%s' instead of '%s' (see clause 3, Terms and definitions)."
+level: error
+ignorecase: true
+swap:
+  'user IDs?': user identifier
+  'user names?': user identifier
+  'login IDs?': user identifier
+  'member (?:information|records?)': member data
+  'personal data': member data
+  'auditors?': assessor
+  'admin(?:istrator)? accounts?': privileged account
+  'strong encryption': strong cryptography
+  'in-scope systems?': system component

@@ -1,0 +1,11 @@
+{
+  "name": "standards-toolbox",
+  "private": true,
+  "description": "Node tools used inside the toolbox image; versions are exact.",
+  "dependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "cspell": "10.5.1",
+    "playwright": "1.65.1",
+    "vnu-jar": "26.11.14"
+  }
+}

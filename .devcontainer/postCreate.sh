@@ -25,6 +25,10 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 # Claude CLI
 curl -fsSL https://claude.ai/install.sh | bash
 
+# Pipeline toolbox image: every validator and builder, pinned in tools/Dockerfile.
+# Built here so the first `make check` is fast; make rebuilds it when tools/ changes.
+make -C "$(dirname "$0")/.." toolbox || echo "toolbox image not built; run 'make toolbox' later"
+
 # Convenience aliases
 if ! grep -qF 'alias dsp=' ~/.bashrc; then
   {
