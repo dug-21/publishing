@@ -57,6 +57,7 @@ jobs:
     runs-on: ubuntu-24.04
     permissions:
       contents: write      # gh-pages branch and GitHub Release
+      pages: write         # request the Pages build
       id-token: write      # artifact attestations
       attestations: write
     env:
@@ -99,9 +100,17 @@ jobs:
           git add -A
           git commit -q -m "Publish ${GITHUB_REF_NAME} (${GITHUB_SHA::7})"
           git push -q --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
-      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
-        with:
-          path: build/publish/site
+      - name: Publish the gh-pages branch and wait for the site
+        run: |
+          gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" --silent
+          for attempt in $(seq 1 30); do
+            sleep 10
+            status=$(gh api "repos/${GITHUB_REPOSITORY}/pages/builds/latest" -q .status)
+            echo "Pages build: $status"
+            if [ "$status" = built ]; then exit 0; fi
+            if [ "$status" = errored ]; then echo "::error::GitHub Pages build failed"; exit 1; fi
+          done
+          echo "::error::GitHub Pages build did not finish in time"; exit 1
       - name: Release notes
         if: github.ref_type == 'tag'
         run: make release-notes
@@ -114,16 +123,3 @@ jobs:
         if: github.ref_type == 'tag'
         run: gh release create "$GITHUB_REF_NAME" build/release/* --title "$GITHUB_REF_NAME" --notes-file build/release-notes.md --verify-tag
 
-  deploy:
-    needs: publish
-    runs-on: ubuntu-24.04
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
-      - id: deployment
-        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
