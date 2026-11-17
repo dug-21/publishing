@@ -2,7 +2,7 @@
 # The Makefile runs all targets inside this image, locally and in CI.
 FROM verapdf/cli:v1.30.4@sha256:f085855d442ad415e79fabbabcdd1803c2db4ee097cd5b94506c95ecdcfa1728 AS verapdf
 
-FROM node:24-trixie-slim@sha256:af02d57b57719b9657a45199a79264a9437940cd55b3c7b3fc99615654f124a0
+FROM node:26-trixie-slim@sha256:e6bedef217677b276c591795e169840edd9096dbf13f29df8ef8d1856b8820bc
 
 ARG ASCIIDOCTOR_VERSION=2.0.26
 ARG VALE_VERSION=3.27.0
