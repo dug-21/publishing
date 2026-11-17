@@ -7,6 +7,7 @@ The sample standard is the *Member Data Stewardship Standard* (MDSS), a small or
 - Criteria: [`KeyRequirements.md`](KeyRequirements.md)
 - Research, scored matrix and scale tests: [`docs/research/`](docs/research/README.md)
 - Decisions: [`docs/decisions/`](docs/decisions/)
+- OSCAL guide for first-time adopters: [`docs/oscal-tutorial.md`](docs/oscal-tutorial.md)
 
 ## Quick start
 
