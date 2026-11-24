@@ -1,6 +1,6 @@
 # Toolbox image: every tool the pipeline uses, pinned.
 # The Makefile runs all targets inside this image, locally and in CI.
-FROM verapdf/cli:v1.30.4@sha256:f085855d442ad415e79fabbabcdd1803c2db4ee097cd5b94506c95ecdcfa1728 AS verapdf
+FROM verapdf/cli:v1.30.4@sha256:c2ac9448973a56acd833c81441e38d2dca58ea26a2ce1621e9a32e85d3d2728f AS verapdf
 
 FROM node:26-trixie-slim@sha256:e6bedef217677b276c591795e169840edd9096dbf13f29df8ef8d1856b8820bc
 
